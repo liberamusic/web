@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libera · Khóa Học Âm Nhạc</title>
+    <!-- Font thanh lịch -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #0c0b0f;
+            color: #f5f5f5;
+            line-height: 1.5;
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Tiêu đề trang */
+        .page-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        /* Grid cho danh sách khóa học */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card từng khóa học */
+        .course-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ảnh placeholder cho môn học */
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Overlay vàng nhẹ trên ảnh */
+        .course-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(12, 11, 15, 0.8));
+        }
+
+        /* Nội dung card */
+        .course-content {
+            padding: 1.8rem;
+        }
+
+        .course-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .course-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5f5f5;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-price span {
+            color: #D4AF37;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .btn-register {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            padding: 0.7rem 1.8rem;
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            background: #D4AF37;
+            color: #0c0b0f;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .page-title h2 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== THANH ĐIỀU HƯỚNG (NAVBAR) ===== -->
+    <nav style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(12, 11, 15, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    ">
+        <div style="display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;">
+            <a href="index.html" style="color: #f5f5f5; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 2px;">TRANG CHỦ</a>
+            <a href="about.html" style="color: #f5f5f5; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 2px;">GIỚI THIỆU</a>
+            <a href="courses.html" style="color: #D4AF37; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: 2px;">KHÓA HỌC</a>
+            <a href="pricing.html" style="color: #f5f5f5; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 2px;">HỌC PHÍ</a>
+            <a href="schedule.html" style="color: #f5f5f5; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 2px;">LỊCH HỌC</a>
+            <a href="contact.html" style="color: #f5f5f5; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 400; letter-spacing: 2px;">LIÊN HỆ</a>
+        </div>
+    </nav>
+    <!-- Đẩy nội dung xuống -->
+    <div style="height: 70px;"></div>
+
+    <!-- ===== NỘI DUNG CHÍNH ===== -->
+    <div class="container">
+        <div class="page-title">
+            <h2>KHÓA HỌC</h2>
+            <p>Khám phá hành trình âm nhạc của bạn tại Libera</p>
+        </div>
+
+        <div class="courses-grid">
+            <!-- 1. Violin -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Violin</h3>
+                    <p class="course-description">Kỹ thuật kéo vĩ, tư thế chuẩn, luyện ngữ điệu và biểu cảm âm nhạc cổ điển.</p>
+                    <div class="course-price">2.500.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+
+            <!-- 2. Piano -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Piano</h3>
+                    <p class="course-description">Từ cơ bản đến nâng cao, luyện ngón, hòa âm và biểu diễn tác phẩm kinh điển.</p>
+                    <div class="course-price">2.800.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+
+            <!-- 3. Cello -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1613480157479-bbbe5cbc2f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Cello</h3>
+                    <p class="course-description">Âm sắc trầm ấm, kỹ thuật vibrato, legato và biểu diễn độc tấu hoặc hòa tấu.</p>
+                    <div class="course-price">3.000.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+
+            <!-- 4. Xylophone -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1580820606286-9e5b4d95c10d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Xylophone</h3>
+                    <p class="course-description">Nhạc cụ gõ du dương, phát triển cảm thụ tiết tấu và phối hợp tay mắt.</p>
+                    <div class="course-price">1.800.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+
+            <!-- 5. Melodica -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1580914653494-1ad2b7a53397?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Melodica</h3>
+                    <p class="course-description">Nhạc cụ thổi bàn phím, dễ học, vui nhộn, phù hợp mọi lứa tuổi bắt đầu.</p>
+                    <div class="course-price">1.500.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+
+            <!-- 6. Hợp xướng -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Hợp xướng</h3>
+                    <p class="course-description">Luyện thanh, hát bè, hòa giọng trong dàn hợp xướng, biểu diễn sân khấu.</p>
+                    <div class="course-price">2.200.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+
+            <!-- 7. Thanh nhạc -->
+            <div class="course-card">
+                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="course-content">
+                    <h3 class="course-title">Thanh nhạc</h3>
+                    <p class="course-description">Kỹ thuật hơi thở, mở rộng âm vực, phong cách biểu diễn đa dạng từ cổ điển đến hiện đại.</p>
+                    <div class="course-price">2.500.000đ <span>/ 8 buổi</span></div>
+                    <a href="#" class="btn-register">ĐĂNG KÝ HỌC THỬ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2024 Libera Music Center · Mọi quyền được bảo lưu
+    </div>
+
+    <script>
+        // Thêm hiệu ứng click cho các nút đăng ký (giả lập)
+        document.querySelectorAll('.btn-register').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('🎵 Cảm ơn bạn đã quan tâm! Vui lòng liên hệ 0123.456.789 để được tư vấn khóa học.');
+            });
+        });
+    </script>
+
+</body>
+</html>

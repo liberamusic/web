@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libera Music Center · Trung tâm Âm nhạc</title>
-    <!-- Font thanh lịch -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SEO -->
+    <title>Libera Music · Nơi cảm xúc thăng hoa cùng từng phím đàn</title>
+    <meta name="description" content="Có những đứa trẻ đến với Libera bằng sự nhút nhát, và rời đi bằng sự tự tin trên sân khấu. Có những người lớn tìm đến Libera để trốn khỏi ồn ã, và tìm thấy vài giờ thảnh thơi bên phím đàn. Đó là câu chuyện 8 năm qua của chúng tôi ở Thái Nguyên.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --brown-deep: #4B2E2A;
+            --red-warm: #B23A3A;
+            --cream-soft: #F5F5DC;
+            --blue-gray: #A7C7D9;
+            --teal-calm: #3B7A78;
+            --white-pure: #FFFFFF;
+            --gray-light: #F9F9F9;
+            --gray-mid: #666666;
+            --shadow-soft: 0 10px 40px rgba(75, 46, 42, 0.08);
+            --shadow-hover: 0 20px 50px rgba(75, 46, 42, 0.12);
         }
 
         html {
@@ -18,63 +37,165 @@
         }
 
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #0c0b0f;
-            color: #f5f5f5;
-            line-height: 1.5;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream-soft);
+            color: var(--brown-deep);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* ===== THANH ĐIỀU HƯỚNG (NAVBAR) ===== */
+        /* Font chính cho tiêu đề */
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(12, 11, 15, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(245, 245, 220, 0.95);
+            backdrop-filter: blur(12px);
             padding: 1rem 2rem;
-            z-index: 100;
+            z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(75, 46, 42, 0.08);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            color: var(--brown-deep);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--teal-calm);
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 2.2rem;
+            align-items: center;
         }
 
         .nav-links a {
-            color: #f5f5f5;
+            color: var(--brown-deep);
             text-decoration: none;
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
         }
 
         .nav-links a:hover {
-            color: #D4AF37;
+            color: var(--teal-calm);
+            border-bottom-color: var(--teal-calm);
         }
 
         .nav-links a.active {
-            color: #D4AF37;
-            font-weight: 600;
+            color: var(--teal-calm);
+            border-bottom-color: var(--teal-calm);
         }
 
-        /* ===== HERO SECTION (GIỮ NGUYÊN THIẾT KẾ CŨ) ===== */
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--cream-soft);
+            border: 1px solid rgba(75, 46, 42, 0.08);
+            border-radius: 8px;
+            padding: 1rem 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-hover);
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1.5rem;
+            text-transform: none;
+            font-size: 1rem;
+            border-bottom: none !important;
+            color: var(--brown-deep);
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(59, 122, 120, 0.08);
+            color: var(--teal-calm);
+        }
+
+        .dropdown-menu .divider {
+            height: 1px;
+            background: rgba(75, 46, 42, 0.1);
+            margin: 0.5rem 0;
+        }
+
+        /* Nút CTA đặc biệt */
+        .btn-cta {
+            background: var(--teal-calm);
+            color: var(--cream-soft) !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 40px;
+            border-bottom: none !important;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 12px rgba(59, 122, 120, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background: #2d5e5c;
+            color: var(--cream-soft) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 122, 120, 0.3);
+        }
+
+        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: radial-gradient(circle at top left, #2a2533, #0c0b0f 80%);
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(167, 199, 217, 0.15) 0%, rgba(245, 245, 220, 0.8) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -82,340 +203,675 @@
         .hero::before {
             content: "";
             position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-            pointer-events: none;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(178, 58, 58, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
-        h1 {
-            font-size: 7rem;
-            font-weight: 700;
-            letter-spacing: 15px;
-            text-transform: uppercase;
-            color: #ffffff;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 2s ease-out;
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .tagline {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: #D4AF37;
-            letter-spacing: 6px;
-            word-spacing: 8px;
-            text-transform: uppercase;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 1rem 0;
-            margin-bottom: 2.5rem;
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 2.5s ease-out;
+        .hero-content {
+            animation: fadeInUp 1s ease;
         }
 
-        .btn-view {
-            background: transparent;
-            border: 1.5px solid #D4AF37;
-            color: #D4AF37;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+        .hero-content h1 {
+            font-size: 5.5rem;
             font-weight: 600;
-            letter-spacing: 5px;
-            padding: 1.2rem 3.5rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
+            letter-spacing: 12px;
+            color: var(--brown-deep);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 6px;
+            color: var(--teal-calm);
             text-transform: uppercase;
-            text-decoration: none;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(59, 122, 120, 0.2);
+            padding-bottom: 1rem;
             display: inline-block;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
 
-        .btn-view:hover {
-            background: #D4AF37;
-            color: #0c0b0f;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
-            border-color: #D4AF37;
-        }
-
-        .quote {
-            position: absolute;
-            bottom: 3rem;
-            left: 0;
-            right: 0;
-            text-align: center;
+        .hero-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--brown-deep);
+            margin-bottom: 2rem;
+            line-height: 1.4;
             font-style: italic;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.5);
-            z-index: 2;
-            letter-spacing: 2px;
         }
 
-        /* ===== SECTION MÔN HỌC NỔI BẬT ===== */
-        .featured-courses {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-btn {
+            display: inline-block;
+            background: var(--teal-calm);
+            color: var(--cream-soft);
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(59, 122, 120, 0.25);
+            border: 1px solid transparent;
         }
 
-        .section-title {
+        .hero-btn:hover {
+            background: transparent;
+            color: var(--teal-calm);
+            border-color: var(--teal-calm);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 122, 120, 0.2);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px 80px 20px 80px;
+            box-shadow: var(--shadow-hover);
+            border: 4px solid var(--cream-soft);
+            outline: 1px solid rgba(75, 46, 42, 0.1);
+            outline-offset: 8px;
+        }
+
+        .hero-image::after {
+            content: "🎵";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 4rem;
+            opacity: 0.3;
+            color: var(--teal-calm);
+        }
+
+        /* ===== FEATURED BLOCKS ===== */
+        .featured {
+            padding: 5rem 0;
+            background: var(--white-pure);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .featured-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--cream-soft);
+            border-radius: 30px 10px 30px 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(75, 46, 42, 0.05);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--teal-calm);
+        }
+
+        .featured-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--teal-calm);
+        }
+
+        .featured-card h3 {
+            font-size: 2rem;
+            color: var(--brown-deep);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .featured-card p {
+            color: var(--gray-mid);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ===== JOURNEYS SECTION ===== */
+        .journeys {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, var(--cream-soft), rgba(167, 199, 217, 0.1));
+        }
+
+        .section-header {
             text-align: center;
             margin-bottom: 4rem;
         }
 
-        .section-title h2 {
+        .section-header h2 {
             font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: 8px;
-            color: #D4AF37;
-            margin-bottom: 0.5rem;
+            color: var(--brown-deep);
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
-        .section-title p {
+        .section-header p {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--gray-mid);
+            max-width: 700px;
+            margin: 0 auto;
             font-style: italic;
         }
 
-        .courses-grid {
+        .journeys-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
         }
 
-        .course-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            border-radius: 8px;
+        .journey-card {
+            background: var(--white-pure);
+            border-radius: 40px 15px 40px 15px;
             overflow: hidden;
+            box-shadow: var(--shadow-soft);
             transition: all 0.3s ease;
+            border: 1px solid rgba(75, 46, 42, 0.05);
         }
 
-        .course-card:hover {
+        .journey-card:hover {
             transform: translateY(-5px);
-            border-color: #D4AF37;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--shadow-hover);
         }
 
-        .course-image {
-            width: 100%;
-            height: 200px;
+        .journey-image {
+            height: 220px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
 
-        .course-image::after {
+        .journey-image::after {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, rgba(12, 11, 15, 0.8));
+            background: linear-gradient(to bottom, transparent 60%, rgba(75, 46, 42, 0.3));
         }
 
-        .course-content {
-            padding: 1.8rem;
+        .journey-content {
+            padding: 2rem 1.8rem;
         }
 
-        .course-title {
+        .journey-content h3 {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: #D4AF37;
-            margin-bottom: 0.5rem;
-        }
-
-        .course-description {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .btn-course {
-            display: inline-block;
-            background: transparent;
-            border: 1px solid #D4AF37;
-            color: #D4AF37;
-            padding: 0.7rem 1.8rem;
-            text-decoration: none;
-            font-family: 'Cormorant Garamond', serif;
+            color: var(--teal-calm);
+            margin-bottom: 0.8rem;
             font-weight: 600;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
         }
 
-        .btn-course:hover {
-            background: #D4AF37;
-            color: #0c0b0f;
+        .journey-content p {
+            color: var(--gray-mid);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .journey-link {
+            color: var(--red-warm);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .journey-link:hover {
+            color: var(--brown-deep);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 5rem 0;
+            background: var(--white-pure);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(167, 199, 217, 0.08), var(--cream-soft));
+            padding: 2.5rem;
+            border-radius: 50px 15px 50px 15px;
+            border-left: 4px solid var(--teal-calm);
+        }
+
+        .testimonial-card p {
+            font-size: 1.15rem;
+            color: var(--brown-deep);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: var(--teal-calm);
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         /* ===== CTA SECTION ===== */
         .cta-section {
+            padding: 5rem 0;
             text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.05));
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            background: linear-gradient(135deg, rgba(59, 122, 120, 0.05), rgba(167, 199, 217, 0.15));
         }
 
-        .cta-section h3 {
-            font-size: 2.5rem;
-            color: #D4AF37;
-            margin-bottom: 1rem;
+        .cta-section h2 {
+            font-size: 3rem;
+            color: var(--brown-deep);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .cta-section p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .btn-cta {
-            display: inline-block;
-            background: #D4AF37;
-            border: 1.5px solid #D4AF37;
-            color: #0c0b0f;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 4px;
-            padding: 1rem 3rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .btn-cta:hover {
-            background: transparent;
-            color: #D4AF37;
+            color: var(--gray-mid);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
         }
 
         /* ===== FOOTER ===== */
         .footer {
+            background: var(--brown-deep);
+            color: var(--cream-soft);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
             text-align: center;
-            padding: 2rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+        }
+
+        .footer-address {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-phone {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue-gray);
+        }
+
+        .footer-hours {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .footer-copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 245, 220, 0.1);
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* ===== MODAL POPUP ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(75, 46, 42, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--cream-soft);
+            padding: 3rem;
+            border-radius: 40px 15px 40px 15px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: var(--shadow-hover);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--brown-deep);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--red-warm);
+        }
+
+        .modal-content h3 {
+            font-size: 2rem;
+            color: var(--teal-calm);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(75, 46, 42, 0.2);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: var(--white-pure);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--teal-calm);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--teal-calm);
+            color: var(--cream-soft);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #2d5e5c;
         }
 
         /* ===== ANIMATIONS ===== */
-        @keyframes fadeIn {
-            from { opacity: 0; letter-spacing: 25px; }
-            to { opacity: 1; letter-spacing: 15px; }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+
+            .hero-message {
+                font-size: 1.8rem;
+            }
+
+            .featured-grid,
+            .journeys-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 3.5rem;
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .btn-cta {
+                padding: 0.4rem 1rem !important;
+            }
+
+            .featured-grid,
+            .journeys-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
                 letter-spacing: 8px;
             }
-            .tagline {
-                font-size: 1rem;
-                letter-spacing: 3px;
-            }
-            .btn-view {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
-            }
-            .section-title h2 {
+
+            .section-header h2 {
                 font-size: 2.5rem;
-                letter-spacing: 4px;
             }
-            .nav-links {
-                gap: 1.2rem;
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+                padding: 0.5rem 0;
             }
-            .nav-links a {
-                font-size: 0.85rem;
-                letter-spacing: 1px;
+
+            .dropdown:hover .dropdown-menu {
+                display: block;
             }
         }
 
         @media (max-width: 480px) {
-            h1 {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero-content h1 {
                 font-size: 2.5rem;
-                letter-spacing: 5px;
+            }
+
+            .hero-message {
+                font-size: 1.5rem;
+            }
+
+            .hero-btn {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== THANH ĐIỀU HƯỚNG ===== -->
+    <!-- ===== HEADER / NAVBAR ===== -->
     <nav class="navbar">
+        <a href="index.html" class="logo">LIBERA</a>
         <div class="nav-links">
             <a href="index.html" class="active">TRANG CHỦ</a>
             <a href="about.html">GIỚI THIỆU</a>
-            <a href="courses.html">KHÓA HỌC</a>
-            <a href="pricing.html">HỌC PHÍ</a>
-            <a href="schedule.html">LỊCH HỌC</a>
+            
+            <!-- Dropdown CHƯƠNG TRÌNH HỌC -->
+            <div class="dropdown">
+                <a href="courses.html" class="dropdown-toggle">CHƯƠNG TRÌNH HỌC ▼</a>
+                <div class="dropdown-menu">
+                    <a href="courses.html?category=piano">🎹 Piano AMEB</a>
+                    <a href="courses.html?category=violin">🎻 Violin</a>
+                    <a href="courses.html?category=choir">🎤 Hợp xướng</a>
+                    <div class="divider"></div>
+                    <a href="courses.html?category=cello">🎵 Cello</a>
+                    <a href="courses.html?category=xylophone">🎵 Xylophone</a>
+                    <a href="courses.html?category=melodica">🎵 Melodica</a>
+                    <div class="divider"></div>
+                    <a href="schedule.html">📅 Lịch khai giảng & Học phí</a>
+                </div>
+            </div>
+            
+            <a href="products.html">SẢN PHẨM</a>
+            <a href="gallery.html">THƯ VIỆN</a>
             <a href="contact.html">LIÊN HỆ</a>
+            <a href="#" class="btn-cta" id="ctaButton">🔔 ĐĂNG KÝ HỌC THỬ</a>
         </div>
     </nav>
 
     <!-- ===== HERO SECTION ===== -->
     <section class="hero">
-        <h1>LIBERA</h1>
-        <div class="tagline">Angel Voices · Eternal Peace</div>
-        
-        <!-- Nút "Tìm hiểu thêm" cuộn xuống phần môn học nổi bật -->
-        <a href="#featured" class="btn-view">Tìm hiểu thêm</a>
-        
-        <div class="quote">
-            “Âm nhạc là tiếng vọng của thiên đường” — Libera
+        <div class="container">
+            <div class="hero-content">
+                <h1>LIBERA</h1>
+                <div class="hero-slogan">Angel Voices · Eternal Peace</div>
+                <h2 class="hero-message">Có một nơi ở Thái Nguyên,<br>người ta học đàn bằng cả trái tim.</h2>
+                <a href="#journeys" class="hero-btn">Ghé thăm không gian 140m²</a>
+            </div>
+            <div class="hero-image">
+                <!-- Ảnh placeholder - Cậu thay bằng ảnh thật sau -->
+                <img src="images/hero-piano-thai-nguyen.jpg" 
+                     alt="Khoảnh khắc bình yên trong lớp Piano tại Libera Thái Nguyên"
+                     loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+            </div>
         </div>
     </section>
 
-    <!-- ===== SECTION MÔN HỌC NỔI BẬT (ID: featured) ===== -->
-    <section id="featured" class="featured-courses">
-        <div class="section-title">
-            <h2>MÔN HỌC NỔI BẬT</h2>
-            <p>Khám phá những khóa học được yêu thích nhất tại Libera</p>
+    <!-- ===== 3 KHỐI NỔI BẬT ===== -->
+    <section class="featured">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-icon">🎹</div>
+                    <h3>Rộng để giấc mơ bay xa</h3>
+                    <p>140m² ở tầng 4, số 1 Phù Liễn. Một khoảng trời riêng, nơi tiếng đàn không bị ngăn bởi những bức tường chật chội.</p>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-icon">💝</div>
+                    <h3>Hơn 80 tâm hồn đồng điệu</h3>
+                    <p>Mỗi tuần, họ lại tìm về Libera như tìm về một góc bình yên. Không phân biệt tuổi tác, chỉ cần chung một tình yêu.</p>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-icon">📜</div>
+                    <h3>Chuẩn mực, nhưng không khô cứng</h3>
+                    <p>Giáo trình AMEB từ Úc là kim chỉ nam. Nhưng cách chúng tôi truyền lửa là bằng chính những rung động chân thành nhất.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="courses-grid">
-            <!-- Piano -->
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="course-content">
-                    <h3 class="course-title">Piano</h3>
-                    <p class="course-description">Từ cơ bản đến nâng cao, luyện ngón, hòa âm và biểu diễn tác phẩm kinh điển.</p>
-                    <a href="courses.html" class="btn-course">TÌM HIỂU THÊM</a>
+    <!-- ===== NHỮNG HÀNH TRÌNH ÂM NHẠC ===== -->
+    <section id="journeys" class="journeys">
+        <div class="container">
+            <div class="section-header">
+                <h2>Những hành trình bạn có thể bắt đầu hôm nay</h2>
+                <p>Mỗi loại nhạc cụ là một con đường khác nhau. Đừng lo nếu bạn chưa biết bắt đầu từ đâu. Hãy lắng nghe xem, con tim bạn đang rung động vì điều gì?</p>
+            </div>
+            <div class="journeys-grid">
+                <!-- Piano -->
+                <div class="journey-card">
+                    <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="journey-content">
+                        <h3>Piano · Chạm vào cổ điển</h3>
+                        <p>Hành trình của sự kiên nhẫn và tinh tế. Nơi những ngón tay lướt trên phím ngà và trái tim được nuôi dưỡng bởi những giai điệu vượt thời gian.</p>
+                        <a href="courses.html?category=piano" class="journey-link">KHÁM PHÁ HÀNH TRÌNH →</a>
+                    </div>
+                </div>
+                <!-- Violin -->
+                <div class="journey-card">
+                    <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="journey-content">
+                        <h3>Violin · Tiếng lòng kéo vĩ</h3>
+                        <p>Hành trình của cảm xúc. Nơi cây vĩ kéo những nỗi niềm không nói thành lời, dịu dàng mà mãnh liệt như chính thanh xuân.</p>
+                        <a href="courses.html?category=violin" class="journey-link">KHÁM PHÁ HÀNH TRÌNH →</a>
+                    </div>
+                </div>
+                <!-- Hợp xướng -->
+                <div class="journey-card">
+                    <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="journey-content">
+                        <h3>Hợp xướng · Hòa làm một</h3>
+                        <p>Hành trình của sự kết nối. Nơi bạn không cần là giọng ca chính. Chỉ cần bạn khao khát được thuộc về một tập thể và cùng tạo nên bản hòa ca.</p>
+                        <a href="courses.html?category=choir" class="journey-link">KHÁM PHÁ HÀNH TRÌNH →</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Violin -->
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="course-content">
-                    <h3 class="course-title">Violin</h3>
-                    <p class="course-description">Kỹ thuật kéo vĩ, tư thế chuẩn, luyện ngữ điệu và biểu cảm âm nhạc cổ điển.</p>
-                    <a href="courses.html" class="btn-course">TÌM HIỂU THÊM</a>
-                </div>
+    <!-- ===== LỜI THÌ THẦM (TESTIMONIALS) ===== -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lời thì thầm từ những tâm hồn đồng điệu</h2>
             </div>
-
-            <!-- Thanh nhạc -->
-            <div class="course-card">
-                <div class="course-image" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="course-content">
-                    <h3 class="course-title">Thanh nhạc</h3>
-                    <p class="course-description">Kỹ thuật hơi thở, mở rộng âm vực, phong cách biểu diễn đa dạng.</p>
-                    <a href="courses.html" class="btn-course">TÌM HIỂU THÊM</a>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Con gái tôi từ nhút nhát, nay đã tự tin đứng trên sân khấu. Cảm ơn Libera đã cho con một tuổi thơ có nhạc."</p>
+                    <div class="testimonial-author">— Chị Minh Anh, phụ huynh bé Bảo Châu 7 tuổi</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Đã lâu rồi tôi mới tìm lại được cảm giác bình yên khi ngồi vào đàn. Không gian ở Libera thực sự rất khác."</p>
+                    <div class="testimonial-author">— Anh Tuấn, học viên Piano người lớn</div>
                 </div>
             </div>
         </div>
@@ -423,12 +879,106 @@
 
     <!-- ===== CTA SECTION ===== -->
     <section class="cta-section">
-        <h3>Sẵn sàng bắt đầu hành trình âm nhạc?</h3>
-        <p>Đăng ký ngay hôm nay để nhận buổi học thử miễn phí!</p>
-        <a href="contact.html" class="btn-cta">LIÊN HỆ TƯ VẤN</a>
+        <div class="container">
+            <h2>Không cần vội. Cứ ghé qua, ngồi xuống và cảm nhận.</h2>
+            <p>Tầng 4, số 1 Phù Liễn, Hoàng Văn Thụ, Thái Nguyên. Có một không gian 140m² đang đợi bạn. Đàn đã lên dây, trà đã pha ấm. Chúng tôi ở đây, khi bạn sẵn sàng.</p>
+            <a href="#" class="hero-btn" id="ctaButton2">Đặt lịch ghé thăm Libera</a>
+        </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        © 2024 Libera Music Center · Mọi quyền được bảo lưu<br>
-        📞 0123.456.789 ·
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-address">📍 Số 1 Phù Liễn, Hoàng Văn Thụ, TP. Thái Nguyên</div>
+                <div class="footer-phone">📞 0123.456.789</div>
+                <div class="footer-hours">🎵 Mở cửa: 8:00 - 20:00 các ngày trong tuần</div>
+                <div class="footer-copyright">© 2024 Libera Music · Nơi âm nhạc không chỉ được học, mà còn được cảm.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL ĐĂNG KÝ HỌC THỬ ===== -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h3>Đăng ký học thử</h3>
+            <form id="trialForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Họ và tên phụ huynh" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Số điện thoại" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Chọn môn học quan tâm</option>
+                        <option value="piano">Piano AMEB</option>
+                        <option value="violin">Violin</option>
+                        <option value="choir">Hợp xướng</option>
+                        <option value="cello">Cello</option>
+                        <option value="xylophone">Xylophone</option>
+                        <option value="melodica">Melodica</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">GỬI ĐĂNG KÝ</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('registrationModal');
+        const ctaButton = document.getElementById('ctaButton');
+        const ctaButton2 = document.getElementById('ctaButton2');
+        const closeModal = document.getElementById('closeModal');
+        const trialForm = document.getElementById('trialForm');
+
+        function openModal(e) {
+            e.preventDefault();
+            modal.classList.add('active');
+        }
+
+        function closeModalFunc() {
+            modal.classList.remove('active');
+        }
+
+        ctaButton.addEventListener('click', openModal);
+        ctaButton2.addEventListener('click', openModal);
+        closeModal.addEventListener('click', closeModalFunc);
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+
+        // Form submission
+        trialForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('🎵 Cảm ơn bạn đã quan tâm! Libera sẽ liên hệ trong thời gian sớm nhất.');
+            closeModalFunc();
+            trialForm.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

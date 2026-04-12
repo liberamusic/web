@@ -180,12 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initLightbox();
 });
 
-// ========== HERO SLIDESHOW ==========
+// ========== HERO SLIDESHOW (CHỈNH SỬA: 10 ẢNH) ==========
 class HeroSlideshow {
     constructor() {
         this.slides = [];
         this.currentIndex = 0;
-        this.totalSlides = 25;
+        this.totalSlides = 10; // ĐÃ SỬA: từ 25 xuống 10 ảnh
         this.interval = null;
         this.autoPlayDelay = 5000;
         this.slideElements = [];
@@ -195,10 +195,14 @@ class HeroSlideshow {
     }
     
     init() {
-        // Tạo danh sách ảnh
-        for (let i = 1; i <= this.totalSlides; i++) {
-            this.slides.push(`images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-${i}.jpg`);
+        // Danh sách ảnh thực tế (bỏ qua số 4 vì không có)
+        const imageNumbers = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11];
+        
+        for (let i = 0; i < imageNumbers.length; i++) {
+            this.slides.push(`images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-${imageNumbers[i]}.jpg`);
         }
+        
+        console.log('Đã tạo', this.slides.length, 'slide với các ảnh:', this.slides);
         
         this.renderSlides();
         this.startAutoPlay();
@@ -209,24 +213,24 @@ class HeroSlideshow {
         const container = document.getElementById('heroSlideshow');
         const dotsContainer = document.getElementById('slideDots');
         
-        if (!container) return;
+        if (!container) {
+            console.error('Không tìm thấy container heroSlideshow');
+            return;
+        }
         
         // Xóa nội dung cũ
         container.innerHTML = '';
         dotsContainer.innerHTML = '';
         
-        // Tạo các slide - KHÔNG DÙNG LAZY LOADING CHO ẢNH SLIDESHOW
+        // Tạo các slide - DÙNG BACKGROUND-IMAGE ĐỂ TRÁNH LỖI
         this.slides.forEach((slide, index) => {
             const slideDiv = document.createElement('div');
             slideDiv.className = `slide ${index === 0 ? 'active' : ''}`;
+            slideDiv.style.backgroundImage = `url('${slide}')`;
+            slideDiv.style.backgroundSize = 'cover';
+            slideDiv.style.backgroundPosition = 'center';
+            slideDiv.style.backgroundRepeat = 'no-repeat';
             
-            const img = document.createElement('img');
-            img.src = slide;
-            img.alt = `LIBERA Music School - Học âm nhạc tại Thái Nguyên`;
-            img.loading = 'eager';  // Quan trọng: eager thay vì lazy
-            img.style.opacity = '1'; // Đảm bảo hiển thị ngay
-            
-            slideDiv.appendChild(img);
             container.appendChild(slideDiv);
         });
         
@@ -243,25 +247,7 @@ class HeroSlideshow {
         this.slideElements = document.querySelectorAll('.slide');
         this.dotElements = document.querySelectorAll('.dot');
         
-        // Đảm bảo tất cả ảnh hiển thị (kiểm tra lỗi 404)
-        this.checkImages();
-    }
-    
-    checkImages() {
-        // Kiểm tra từng ảnh, nếu lỗi 404 thì thử alternative
-        this.slideElements.forEach((slide, idx) => {
-            const img = slide.querySelector('img');
-            if (img) {
-                img.onerror = () => {
-                    console.warn(`Không tìm thấy ảnh: ${img.src}`);
-                    // Thử dùng ảnh fallback nếu cần
-                    // img.src = 'images/Hero/fallback.jpg';
-                };
-                img.onload = () => {
-                    console.log(`Đã tải ảnh: ${img.src}`);
-                };
-            }
-        });
+        console.log('Đã tạo', this.slideElements.length, 'slide elements');
     }
     
     goToSlide(index) {
@@ -314,20 +300,15 @@ class HeroSlideshow {
         const nextBtn = document.getElementById('nextSlide');
         
         if (prevBtn) {
-            prevBtn.removeEventListener('click', this.prevSlide);
             prevBtn.addEventListener('click', () => this.prevSlide());
         }
         
         if (nextBtn) {
-            nextBtn.removeEventListener('click', this.nextSlide);
             nextBtn.addEventListener('click', () => this.nextSlide());
         }
         
         const heroSection = document.querySelector('.hero-slideshow');
         if (heroSection) {
-            heroSection.removeEventListener('mouseenter', this.handleMouseEnter);
-            heroSection.removeEventListener('mouseleave', this.handleMouseLeave);
-            
             heroSection.addEventListener('mouseenter', () => {
                 if (this.interval) clearInterval(this.interval);
             });
@@ -342,7 +323,6 @@ class HeroSlideshow {
 // Khởi tạo slideshow khi trang tải xong
 document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.hero-slideshow')) {
-        // Đảm bảo không khởi tạo nhiều lần
         if (!window.heroSlideshowInstance) {
             window.heroSlideshowInstance = new HeroSlideshow();
         }

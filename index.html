@@ -29,7 +29,7 @@
       "@context": "https://schema.org",
       "@type": "MusicSchool",
       "name": "LIBERA Music School Thái Nguyên",
-      "image": "https://[username].github.io/liberamusic/images//images/Logo/logo-piano-thai-nguyen.png",
+      "image": "https://[username].github.io/liberamusic/images/Logo/logo-piano-thai-nguyen.png",
       "url": "https://[username].github.io/liberamusic",
       "telephone": "+84988xxxxxx",
       "email": "info@liberamusic.com",
@@ -126,8 +126,19 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <!-- HERO SLIDESHOW SECTION -->
+    <section class="hero-slideshow">
+        <!-- Slideshow Container -->
+        <div class="slideshow-container" id="heroSlideshow"></div>
+        
+        <!-- Nút điều hướng -->
+        <button class="slide-nav prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slide-nav next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        
+        <!-- Dấu chấm chỉ thị -->
+        <div class="slide-dots" id="slideDots"></div>
+        
+        <!-- Overlay và nội dung (hiển thị trên tất cả slide) -->
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>LIBERA Music School – Khơi nguồn cảm hứng âm nhạc tại Thái Nguyên</h1>

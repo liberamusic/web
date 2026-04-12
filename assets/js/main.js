@@ -180,3 +180,141 @@ document.addEventListener('DOMContentLoaded', () => {
     initProductFilters();
     initLightbox();
 });
+
+// ========== HERO SLIDESHOW ==========
+class HeroSlideshow {
+    constructor() {
+        this.slides = [];
+        this.currentIndex = 0;
+        this.totalSlides = 25; // Từ 1 đến 25
+        this.interval = null;
+        this.autoPlayDelay = 5000; // 5 giây chuyển slide
+        this.slideElements = [];
+        this.dotElements = [];
+        
+        this.init();
+    }
+    
+    init() {
+        // Tạo danh sách ảnh
+        for (let i = 1; i <= this.totalSlides; i++) {
+            this.slides.push(`images/Hero/day-hoc-piano-tai-thai-nguyen-${i}.jpg`);
+        }
+        
+        this.renderSlides();
+        this.startAutoPlay();
+        this.addEventListeners();
+    }
+    
+    renderSlides() {
+        const container = document.getElementById('heroSlideshow');
+        const dotsContainer = document.getElementById('slideDots');
+        
+        if (!container) return;
+        
+        // Tạo các slide
+        this.slides.forEach((slide, index) => {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = `slide ${index === 0 ? 'active' : ''}`;
+            
+            const img = document.createElement('img');
+            img.src = slide;
+            img.alt = `LIBERA Music School - Học âm nhạc tại Thái Nguyên`;
+            img.loading = 'lazy';
+            
+            slideDiv.appendChild(img);
+            container.appendChild(slideDiv);
+        });
+        
+        // Tạo dấu chấm
+        for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `dot ${i === 0 ? 'active' : ''}`;
+            dot.dataset.index = i;
+            dot.addEventListener('click', () => this.goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Lưu references
+        this.slideElements = document.querySelectorAll('.slide');
+        this.dotElements = document.querySelectorAll('.dot');
+    }
+    
+    goToSlide(index) {
+        if (index === this.currentIndex) return;
+        
+        // Xóa active class
+        this.slideElements[this.currentIndex].classList.remove('active');
+        this.dotElements[this.currentIndex].classList.remove('active');
+        
+        this.currentIndex = index;
+        
+        // Thêm active class cho slide mới
+        this.slideElements[this.currentIndex].classList.add('active');
+        this.dotElements[this.currentIndex].classList.add('active');
+        
+        // Reset timer khi chuyển slide thủ công
+        this.resetAutoPlay();
+    }
+    
+    nextSlide() {
+        let nextIndex = this.currentIndex + 1;
+        if (nextIndex >= this.totalSlides) {
+            nextIndex = 0;
+        }
+        this.goToSlide(nextIndex);
+    }
+    
+    prevSlide() {
+        let prevIndex = this.currentIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = this.totalSlides - 1;
+        }
+        this.goToSlide(prevIndex);
+    }
+    
+    startAutoPlay() {
+        this.interval = setInterval(() => {
+            this.nextSlide();
+        }, this.autoPlayDelay);
+    }
+    
+    resetAutoPlay() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.startAutoPlay();
+        }
+    }
+    
+    addEventListeners() {
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => this.prevSlide());
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => this.nextSlide());
+        }
+        
+        // Dừng auto play khi hover vào hero
+        const heroSection = document.querySelector('.hero-slideshow');
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', () => {
+                if (this.interval) clearInterval(this.interval);
+            });
+            
+            heroSection.addEventListener('mouseleave', () => {
+                this.startAutoPlay();
+            });
+        }
+    }
+}
+
+// Khởi tạo slideshow khi trang tải xong
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.hero-slideshow')) {
+        new HeroSlideshow();
+    }
+});

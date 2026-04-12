@@ -2,1142 +2,329 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LIBERA Music School | Học âm nhạc tại Thái Nguyên</title>
+    <meta name="description" content="LIBERA Music School tại Thái Nguyên chuyên đào tạo Piano, Violin, Hợp xướng, Cello, Xylophone, Melodica. Giáo viên quốc tế, phương pháp hiện đại. Đăng ký học thử miễn phí ngay!">
+    <meta name="keywords" content="học piano Thái Nguyên, học violin Thái Nguyên, học nhạc Thái Nguyên, LIBERA Music School">
     
-    <title>Libera Music · Nơi cảm xúc thăng hoa cùng từng phím đàn</title>
-    <meta name="description" content="Có những đứa trẻ đến với Libera bằng sự nhút nhát, và rời đi bằng sự tự tin trên sân khấu. Có những người lớn tìm đến Libera để trốn khỏi ồn ã, và tìm thấy vài giờ thảnh thơi bên phím đàn. Đó là câu chuyện 8 năm qua của chúng tôi ở Thái Nguyên.">
+    <!-- Geo Tags cho SEO Local Thái Nguyên -->
+    <meta name="geo.region" content="VN-69" />
+    <meta name="geo.placename" content="Thái Nguyên" />
+    <meta name="geo.position" content="21.5929;105.8442" />
+    <meta name="ICBM" content="21.5929, 105.8442" />
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://[username].github.io/liberamusic/index.html">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-blue: #4A9AB3;
-            --primary-blue-dark: #2E7A8C;
-            --primary-blue-darker: #1E5A6B;
-            --primary-blue-light: #6BB5CC;
-            --accent-red: #BB2B2B;
-            --accent-red-dark: #9B2222;
-            --text-dark: #2C2C2C;
-            --text-light: #5A5A5A;
-            --white-pure: #FFFFFF;
-            --white-soft: #F5F9FA;
-            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background-color: var(--primary-blue);
-            color: var(--white-pure);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-weight: 300;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* ===== HEADER ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(46, 122, 140, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 0.8rem 2rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--accent-red);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 6px;
-            color: var(--white-pure);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo:hover {
-            color: var(--accent-red);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--white-pure);
-            padding: 0.5rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--white-pure);
-            text-decoration: none;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-red);
-            border-bottom-color: var(--accent-red);
-        }
-
-        .nav-links a.active {
-            color: var(--accent-red);
-            border-bottom-color: var(--accent-red);
-            font-weight: 600;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--white-pure);
-            border-radius: 12px;
-            padding: 0.8rem 0;
-            min-width: 240px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-hover);
-            z-index: 100;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.7rem 1.8rem;
-            text-transform: none;
-            font-size: 0.95rem;
-            border-bottom: none !important;
-            color: var(--text-dark) !important;
-            font-weight: 400;
-            text-shadow: none !important;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(74, 154, 179, 0.08);
-            color: var(--primary-blue) !important;
-            padding-left: 2.2rem;
-        }
-
-        .divider {
-            height: 1px;
-            background: rgba(0, 0, 0, 0.06);
-            margin: 0.5rem 0;
-        }
-
-        .btn-cta {
-            background: var(--accent-red);
-            color: var(--white-pure) !important;
-            padding: 0.7rem 1.8rem !important;
-            border-radius: 50px;
-            border-bottom: none !important;
-            font-weight: 600 !important;
-            box-shadow: 0 6px 18px rgba(187, 43, 43, 0.3);
-            transition: all 0.3s ease;
-            text-shadow: none !important;
-        }
-
-        .btn-cta:hover {
-            background: var(--accent-red-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(187, 43, 43, 0.4);
-            color: var(--white-pure) !important;
-        }
-
-        /* ===== HERO SLIDER ===== */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            overflow: hidden;
-            margin-top: 0;
-        }
-
-        .slider-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide-1 {
-            background-image: url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-        }
-
-        .slide-2 {
-            background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-        }
-
-        .slide-3 {
-            background-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(30, 90, 107, 0.6) 0%, rgba(74, 154, 179, 0.4) 100%);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .hero-content .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-text h1 {
-            font-size: 6rem;
-            font-weight: 700;
-            letter-spacing: 12px;
-            color: var(--white-pure);
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
-            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-slogan {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            letter-spacing: 6px;
-            color: var(--white-pure);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-red);
-            padding-bottom: 1rem;
-            display: inline-block;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-message {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: var(--white-pure);
-            margin-bottom: 2rem;
-            line-height: 1.4;
-            font-style: italic;
-            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background: var(--accent-red);
-            color: var(--white-pure);
-            padding: 1.2rem 3rem;
-            text-decoration: none;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(187, 43, 43, 0.4);
-            border: 2px solid transparent;
-        }
-
-        .hero-btn:hover {
-            background: transparent;
-            color: var(--white-pure);
-            border-color: var(--white-pure);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-image-preview {
-            position: relative;
-            animation: fadeIn 1.2s ease;
-        }
-
-        .hero-image-preview img {
-            width: 100%;
-            height: auto;
-            border-radius: 30px 100px 30px 100px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            border: 4px solid rgba(255, 255, 255, 0.9);
-        }
-
-        /* Slider dots */
-        .slider-dots {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .dot:hover {
-            background: var(--white-pure);
-        }
-
-        .dot.active {
-            background: var(--accent-red);
-            transform: scale(1.3);
-        }
-
-        /* ===== FEATURED ===== */
-        .featured {
-            padding: 6rem 0;
-            background: var(--white-pure);
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-
-        .featured-card {
-            text-align: left;
-            padding: 2.5rem 2rem;
-            background: var(--white-soft);
-            border-radius: 30px 10px 30px 10px;
-            transition: all 0.3s ease;
-            border-top: 5px solid var(--primary-blue);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .featured-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-top-color: var(--accent-red);
-        }
-
-        .featured-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-blue);
-        }
-
-        .featured-card h3 {
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .featured-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        /* ===== JOURNEYS ===== */
-        .journeys {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 3.5rem;
-            color: var(--white-pure);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto;
-            font-style: italic;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .journeys-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-
-        .journey-card {
-            background: var(--white-pure);
-            border-radius: 40px 15px 40px 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow-hover);
-            transition: all 0.3s ease;
-        }
-
-        .journey-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
-        }
-
-        .journey-image {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .journey-content {
-            padding: 2rem 1.8rem;
-        }
-
-        .journey-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary-blue-darker);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .journey-content p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .journey-link {
-            color: var(--accent-red);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .journey-link:hover {
-            color: var(--primary-blue);
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: 6rem 0;
-            background: var(--white-pure);
-        }
-
-        .testimonials .section-header h2 {
-            color: var(--text-dark);
-            text-shadow: none;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-        }
-
-        .testimonial-card {
-            background: var(--white-soft);
-            padding: 2.5rem;
-            border-radius: 50px 15px 50px 15px;
-            border-left: 5px solid var(--primary-blue);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .testimonial-card p {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            color: var(--accent-red);
-            font-weight: 600;
-        }
-
-        /* ===== CTA ===== */
-        .cta-section {
-            padding: 5rem 0;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-blue-darker), var(--accent-red));
-        }
-
-        .cta-section h2 {
-            font-size: 3rem;
-            color: var(--white-pure);
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .cta-section .hero-btn {
-            background: var(--white-pure);
-            color: var(--accent-red);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-section .hero-btn:hover {
-            background: transparent;
-            color: var(--white-pure);
-            border-color: var(--white-pure);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--primary-blue-darker);
-            color: var(--white-soft);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-address {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-phone {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue-light);
-        }
-
-        .footer-hours {
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        .footer-copyright {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        /* ===== MODAL ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--white-pure);
-            padding: 3rem;
-            border-radius: 40px 15px 40px 15px;
-            max-width: 450px;
-            width: 90%;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
-
-        .modal-close:hover {
-            color: var(--accent-red);
-        }
-
-        .modal-content h3 {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            font-size: 1rem;
-            background: var(--white-soft);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
-            background: var(--accent-red);
-            color: var(--white-pure);
-            border: none;
-            border-radius: 50px;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            background: var(--accent-red-dark);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .hero-content .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 4.5rem;
-            }
-
-            .hero-message {
-                font-size: 2rem;
-            }
-
-            .featured-grid,
-            .journeys-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.8rem 1.5rem;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--primary-blue-darker);
-                flex-direction: column;
-                gap: 0;
-                padding: 1rem 0;
-                box-shadow: var(--shadow-hover);
-                max-height: 80vh;
-                overflow-y: auto;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 1rem 2rem;
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background: rgba(0, 0, 0, 0.2);
-                display: none;
-            }
-
-            .dropdown.active .dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-menu a {
-                color: var(--white-pure) !important;
-            }
-
-            .dropdown-menu a:hover {
-                background: rgba(255, 255, 255, 0.1);
-                color: var(--white-pure) !important;
-            }
-
-            .dropdown-toggle {
-                padding: 1rem 2rem;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .btn-cta {
-                margin: 0.5rem 2rem;
-                text-align: center;
-            }
-
-            .featured-grid,
-            .journeys-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .hero-message {
-                font-size: 1.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Schema LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicSchool",
+      "name": "LIBERA Music School Thái Nguyên",
+      "image": "https://[username].github.io/liberamusic/images/logo.png",
+      "url": "https://[username].github.io/liberamusic",
+      "telephone": "+84988xxxxxx",
+      "email": "info@liberamusic.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Số 123 Đường Lương Ngọc Quyến",
+        "addressLocality": "Thái Nguyên",
+        "addressRegion": "Thái Nguyên",
+        "postalCode": "250000",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 21.5929,
+        "longitude": 105.8442
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "87"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:00",
+          "closes": "20:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-
-    <nav class="navbar">
-        <a href="index.html" class="logo">LIBERA</a>
-        <button class="menu-toggle" id="menuToggle">☰</button>
-        <div class="nav-links" id="navLinks">
-            <a href="index.html" class="active">TRANG CHỦ</a>
-            <a href="about.html">GIỚI THIỆU</a>
-            <div class="dropdown" id="dropdown">
-                <a href="courses.html" class="dropdown-toggle" id="dropdownToggle">
-                    CHƯƠNG TRÌNH HỌC <i>▼</i>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="LIBERA Music School Thái Nguyên Logo" loading="lazy" width="180" height="50">
                 </a>
-                <div class="dropdown-menu">
-                    <a href="courses.html?category=piano">🎹 Piano AMEB</a>
-                    <a href="courses.html?category=violin">🎻 Violin</a>
-                    <a href="courses.html?category=choir">🎤 Hợp xướng</a>
-                    <div class="divider"></div>
-                    <a href="courses.html?category=cello">🎵 Cello</a>
-                    <a href="courses.html?category=xylophone">🎵 Xylophone</a>
-                    <a href="courses.html?category=melodica">🎵 Melodica</a>
-                    <div class="divider"></div>
-                    <a href="schedule.html">📅 Lịch khai giảng & Học phí</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li class="dropdown">
+                        <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="piano.html">Piano</a></li>
+                            <li><a href="violin.html">Violin</a></li>
+                            <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                            <li><a href="cello.html">Cello</a></li>
+                            <li><a href="xylophone.html">Xylophone</a></li>
+                            <li><a href="melodica.html">Melodica</a></li>
+                            <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                            <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="thu-vien.html">Thư viện</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Đăng nhập</button>
+                <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
+            </div>
+            
+            <!-- User menu (ẩn khi chưa đăng nhập) -->
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <div class="user-avatar" id="userAvatar">
+                    <span id="userInitial"></span>
+                </div>
+                <span class="user-name" id="userName"></span>
+                <div class="user-dropdown">
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Hồ sơ</a>
+                    <a href="#" id="changePasswordLink"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                 </div>
             </div>
-            <a href="products.html">SẢN PHẨM</a>
-            <a href="gallery.html">THƯ VIỆN</a>
-            <a href="contact.html">LIÊN HỆ</a>
-            <a href="#" class="btn-cta" id="ctaButton">🔔 ĐĂNG KÝ HỌC THỬ</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Slider -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="slider-container">
-            <div class="slide slide-1 active"></div>
-            <div class="slide slide-2"></div>
-            <div class="slide slide-3"></div>
-        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="container">
-                <div class="hero-text">
-                    <h1>LIBERA</h1>
-                    <div class="hero-slogan">Angel Voices · Eternal Peace</div>
-                    <h2 class="hero-message">Có một nơi ở Thái Nguyên,<br>người ta học đàn bằng cả trái tim.</h2>
-                    <a href="#journeys" class="hero-btn">Ghé thăm không gian 140m²</a>
-                </div>
-                <div class="hero-image-preview">
-                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Piano tại Libera">
-                </div>
-            </div>
-        </div>
-        <div class="slider-dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-            <span class="dot" data-slide="2"></span>
+            <h1>LIBERA Music School – Khơi nguồn cảm hứng âm nhạc tại Thái Nguyên</h1>
+            <p class="hero-subtitle">Chuyên đào tạo Piano, Violin, Hợp xướng, Cello, Xylophone, Melodica</p>
+            <a href="dang-ky.html" class="btn-hero">Đăng ký học thử miễn phí <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
-    <!-- Featured -->
-    <section class="featured">
+    <!-- 3 LỢI ÍCH -->
+    <section class="benefits">
         <div class="container">
-            <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="featured-icon">🎹</div>
-                    <h3>Không gian rộng rãi giữa lòng thành phố</h3>
-                    <p>Tầng 4, số 1 Phù Liễn. 140m² với 3 phòng học riêng biệt, mỗi phòng đều tràn ngập ánh sáng tự nhiên.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Giáo viên Quốc tế</h3>
+                    <p>Đội ngũ giáo viên giàu kinh nghiệm, tốt nghiệp từ các học viện âm nhạc danh tiếng trong và ngoài nước.</p>
                 </div>
-                <div class="featured-card">
-                    <div class="featured-icon">💝</div>
-                    <h3>80+ học viên đã chọn Libera</h3>
-                    <p>Từ các bé 5 tuổi đến người lớn muốn tìm lại đam mê. Mỗi người một câu chuyện, chung một niềm yêu âm nhạc.</p>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-music"></i></div>
+                    <h3>Phương pháp Hiện đại</h3>
+                    <p>Giáo trình chuẩn quốc tế, kết hợp công nghệ và thực hành, giúp học viên tiến bộ nhanh chóng.</p>
                 </div>
-                <div class="featured-card">
-                    <div class="featured-icon">📜</div>
-                    <h3>Giáo trình AMEB - Chuẩn quốc tế</h3>
-                    <p>Lộ trình bài bản theo hệ thống Úc, nền tảng vững chắc để phát triển lâu dài.</p>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Cam kết Tiến bộ</h3>
+                    <p>Cam kết học viên đạt được kỹ năng sau mỗi khóa học, hỗ trợ học lại miễn phí nếu chưa đạt.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Journeys -->
-    <section id="journeys" class="journeys">
+    <!-- 8 MÔN HỌC -->
+    <section class="courses">
         <div class="container">
             <div class="section-header">
-                <h2>Những hành trình bạn có thể bắt đầu hôm nay</h2>
-                <p>Mỗi loại nhạc cụ là một con đường khác nhau. Hãy lắng nghe xem con tim bạn đang rung động vì điều gì?</p>
+                <h2>Chương trình đào tạo</h2>
+                <p>Đa dạng các bộ môn âm nhạc cho mọi lứa tuổi</p>
             </div>
-            <div class="journeys-grid">
-                <div class="journey-card">
-                    <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="journey-content">
-                        <h3>Piano · Chạm vào cổ điển</h3>
-                        <p>Hành trình của sự kiên nhẫn và tinh tế, nơi trái tim được nuôi dưỡng bởi những giai điệu vượt thời gian.</p>
-                        <a href="courses.html?category=piano" class="journey-link">KHÁM PHÁ →</a>
-                    </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="images/Piano/day-hoc-Piano-tai-thai-nguyen-1.jpg" alt="Học piano tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Piano</h3>
+                    <p>Khóa học piano từ cơ bản đến nâng cao</p>
+                    <a href="piano.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="journey-card">
-                    <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="journey-content">
-                        <h3>Violin · Tiếng lòng kéo vĩ</h3>
-                        <p>Hành trình của cảm xúc, nơi cây vĩ kéo những nỗi niềm không nói thành lời.</p>
-                        <a href="courses.html?category=violin" class="journey-link">KHÁM PHÁ →</a>
-                    </div>
+                <div class="course-card">
+                    <img src="images/Violin/day-hoc-Violin-tai-thai-nguyen-1.jpg" alt="Học violin tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Violin</h3>
+                    <p>Khóa học violin chuyên nghiệp</p>
+                    <a href="violin.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="journey-card">
-                    <div class="journey-image" style="background-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="journey-content">
-                        <h3>Hợp xướng · Hòa làm một</h3>
-                        <p>Hành trình của sự kết nối, nơi bạn thuộc về một tập thể và cùng tạo nên bản hòa ca.</p>
-                        <a href="courses.html?category=choir" class="journey-link">KHÁM PHÁ →</a>
-                    </div>
+                <div class="course-card">
+                    <img src="images/Hop-Xuong/day-hoc-Hop-Xuong-tai-thai-nguyen-1.jpg" alt="Học hợp xướng tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Hợp xướng</h3>
+                    <p>Phát triển kỹ năng thanh nhạc tập thể</p>
+                    <a href="hop-xuong.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Cello/day-hoc-Cello-tai-thai-nguyen-1.jpg" alt="Học cello tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Cello</h3>
+                    <p>Khóa học cello đầm ấm và sâu lắng</p>
+                    <a href="cello.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Xylophone/day-hoc-Xylophone-tai-thai-nguyen-1.jpg" alt="Học xylophone tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Xylophone</h3>
+                    <p>Khóa học xylophone vui nhộn cho trẻ em</p>
+                    <a href="xylophone.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Melodica/day-hoc-Melodica-tai-thai-nguyen-1.jpg" alt="Học melodica tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Melodica</h3>
+                    <p>Khóa học melodica dễ học, dễ chơi</p>
+                    <a href="melodica.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Thanh-Nhac/day-hoc-Thanh-Nhac-tai-thai-nguyen-1.jpg" alt="Học thanh nhạc tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Thanh nhạc</h3>
+                    <p>Khóa học thanh nhạc chuyên sâu</p>
+                    <a href="thanh-nhac.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Cam-Thu-Am-Nhac/day-hoc-Cam-Thu-Am-Nhac-tai-thai-nguyen-1.jpg" alt="Học cảm thụ âm nhạc tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Cảm thụ âm nhạc</h3>
+                    <p>Khóa học dành cho trẻ từ 3-6 tuổi</p>
+                    <a href="cam-thu-am-nhac.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- GIỚI THIỆU NGẮN -->
+    <section class="intro-short">
         <div class="container">
-            <div class="section-header">
-                <h2>Lời thì thầm từ những tâm hồn đồng điệu</h2>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p>"Con gái tôi từ nhút nhát, nay đã tự tin đứng trên sân khấu. Cảm ơn Libera đã cho con một tuổi thơ có nhạc."</p>
-                    <div class="testimonial-author">— Chị Minh Anh, phụ huynh bé Bảo Châu 7 tuổi</div>
+            <div class="intro-grid">
+                <div class="intro-image">
+                    <img src="images/Hero/day-hoc-piano-tai-thai-nguyen-1.jpg" alt="LIBERA Music School cơ sở Thái Nguyên" loading="lazy" width="500" height="400">
                 </div>
-                <div class="testimonial-card">
-                    <p>"Đã lâu rồi tôi mới tìm lại được cảm giác bình yên khi ngồi vào đàn. Không gian ở Libera thực sự rất khác."</p>
-                    <div class="testimonial-author">— Anh Tuấn, học viên Piano người lớn</div>
+                <div class="intro-content">
+                    <h2>LIBERA Music School – Nghệ thuật không biên giới</h2>
+                    <p>LIBERA tự hào là điểm đến âm nhạc tin cậy cho học viên khắp trung tâm TP Thái Nguyên, Túc Duyên, Gia Sàng, Phan Đình Phùng, Hoàng Văn Thụ, Tân Lập, Phú Xá, Quang Vinh, Trưng Vương và các huyện lân cận như Đồng Hỷ, Phú Bình, Sông Công, Phổ Yên.</p>
+                    <p>Với phương pháp giảng dạy hiện đại, giáo viên giàu kinh nghiệm, chúng tôi cam kết mang đến trải nghiệm âm nhạc tốt nhất cho học viên.</p>
+                    <a href="gioi-thieu.html" class="btn-more">Xem thêm <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
+    <!-- CTA CUỐI -->
+    <section class="cta-footer-section">
         <div class="container">
-            <h2>Không cần vội. Cứ ghé qua, ngồi xuống và cảm nhận.</h2>
-            <p>Tầng 4, số 1 Phù Liễn, Hoàng Văn Thụ, Thái Nguyên. Đàn đã lên dây, trà đã pha ấm.</p>
-            <a href="#" class="hero-btn" id="ctaButton2">Đặt lịch ghé thăm Libera</a>
+            <div class="cta-content">
+                <h2>Sẵn sàng trở thành nghệ sĩ?</h2>
+                <p>Hãy để LIBERA đồng hành cùng bạn trên con đường âm nhạc</p>
+                <a href="dang-ky.html" class="btn-cta">Đăng ký ngay <i class="fas fa-heart"></i></a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-address">📍 Số 1 Phù Liễn, Hoàng Văn Thụ, TP. Thái Nguyên</div>
-                <div class="footer-phone">📞 0123.456.789</div>
-                <div class="footer-hours">🎵 Mở cửa: 8:00 - 20:00 các ngày trong tuần</div>
-                <div class="footer-copyright">© 2024 Libera Music · Nơi âm nhạc không chỉ được học, mà còn được cảm.</div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>LIBERA Music School - Chi nhánh Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Số 123 Đường Lương Ngọc Quyến, P. Hoàng Văn Thụ, TP. Thái Nguyên</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline: 0988.xxx.xxx - 0208.xxx.xxx</p>
+                        <p><i class="fas fa-envelope"></i> info@liberamusic.com</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Chương trình học</h4>
+                    <ul>
+                        <li><a href="piano.html">Piano</a></li>
+                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="xylophone.html">Xylophone</a></li>
+                        <li><a href="melodica.html">Melodica</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                        <li><a href="san-pham.html">Sản phẩm</a></li>
+                        <li><a href="thu-vien.html">Thư viện</a></li>
+                        <li><a href="lien-he.html">Liên hệ</a></li>
+                        <li><a href="dang-ky.html">Đăng ký học thử</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-zalo"></i></a>
+                    </div>
+                    <div class="google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.8442!3d21.5929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDM1JzM0LjQiTiAxMDXCsDUwJzM5LjEiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LIBERA Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal" id="registrationModal">
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" id="closeModal">&times;</span>
-            <h3>Đăng ký học thử</h3>
-            <form id="trialForm">
+            <span class="modal-close">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form id="loginForm">
                 <div class="form-group">
-                    <input type="text" placeholder="Họ và tên phụ huynh" required>
+                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Số điện thoại" required>
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
-                <div class="form-group">
-                    <select required>
-                        <option value="">Chọn môn học quan tâm</option>
-                        <option value="piano">Piano AMEB</option>
-                        <option value="violin">Violin</option>
-                        <option value="choir">Hợp xướng</option>
-                        <option value="cello">Cello</option>
-                        <option value="xylophone">Xylophone</option>
-                        <option value="melodica">Melodica</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">GỬI ĐĂNG KÝ</button>
+                <button type="submit" class="btn-submit">Đăng nhập</button>
+                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
             </form>
         </div>
     </div>
 
-    <script>
-        // Mobile menu
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        const dropdown = document.getElementById('dropdown');
-        const dropdownToggle = document.getElementById('dropdownToggle');
-
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-        });
-
-        if (dropdownToggle) {
-            dropdownToggle.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dropdown.classList.toggle('active');
-                }
-            });
-        }
-
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    dropdown.classList.remove('active');
-                }
-            }
-        });
-
-        document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
-                    dropdown.classList.remove('active');
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                dropdown.classList.remove('active');
-            }
-        });
-
-        // Slider
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        let slideInterval;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-                resetInterval();
-            });
-        });
-
-        function startInterval() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function resetInterval() {
-            clearInterval(slideInterval);
-            startInterval();
-        }
-
-        startInterval();
-
-        // Modal
-        const modal = document.getElementById('registrationModal');
-        const ctaButton = document.getElementById('ctaButton');
-        const ctaButton2 = document.getElementById('ctaButton2');
-        const closeModal = document.getElementById('closeModal');
-        const trialForm = document.getElementById('trialForm');
-
-        function openModal(e) {
-            e.preventDefault();
-            modal.classList.add('active');
-        }
-
-        function closeModalFunc() {
-            modal.classList.remove('active');
-        }
-
-        ctaButton.addEventListener('click', openModal);
-        ctaButton2.addEventListener('click', openModal);
-        closeModal.addEventListener('click', closeModalFunc);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModalFunc();
-        });
-
-        trialForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('🎵 Cảm ơn bạn đã quan tâm! Libera sẽ liên hệ trong thời gian sớm nhất.');
-            closeModalFunc();
-            trialForm.reset();
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#journeys') return;
-                if (href) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -1444,3 +1444,64 @@ img:not(.loaded) {
         font-size: 16px;
     }
 }
+
+/* ========== TEACHERS SECTION - KIỂM SOÁT KÍCH THƯỚC ẢNH ========== */
+.teachers {
+    padding: 60px 0;
+    background: var(--bg-light);
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.teacher-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+/* Quan trọng: Kiểm soát kích thước ảnh */
+.teacher-card img {
+    width: 100%;          /* Chiều rộng bằng với thẻ cha */
+    height: 320px;        /* Chiều cao cố định, bạn có thể điều chỉnh */
+    object-fit: cover;    /* Đảm bảo ảnh cover khu vực mà không bị méo */
+    object-position: top center; /* Lấy tâm ảnh từ phía trên */
+    display: block;
+}
+
+.teacher-card h3 {
+    margin: 20px 20px 10px;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+}
+
+.teacher-card p {
+    padding: 0 20px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .teacher-card img {
+        height: 280px; /* Giảm chiều cao ảnh trên mobile */
+    }
+    
+    .teacher-card h3 {
+        font-size: 1.2rem;
+    }
+}

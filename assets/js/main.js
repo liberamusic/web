@@ -196,9 +196,9 @@ class HeroSlideshow {
     }
     
     init() {
-        // Tạo danh sách ảnh
+        // Tạo danh sách ảnh - ĐÃ SỬA ĐÚNG TÊN FILE
         for (let i = 1; i <= this.totalSlides; i++) {
-            this.slides.push(`images/Hero/day-hoc-piano-tai-thai-nguyen-${i}.jpg`);
+            this.slides.push(`images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-${i}.jpg`);
         }
         
         this.renderSlides();
@@ -211,6 +211,10 @@ class HeroSlideshow {
         const dotsContainer = document.getElementById('slideDots');
         
         if (!container) return;
+        
+        // Xóa nội dung cũ nếu có (tránh trùng lặp khi reload)
+        container.innerHTML = '';
+        dotsContainer.innerHTML = '';
         
         // Tạo các slide
         this.slides.forEach((slide, index) => {

@@ -38,6 +38,7 @@
     </script>
 </head>
 <body>
+    <!-- HEADER -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -45,7 +46,11 @@
                     <img src="images/Logo/logo-piano-thai-nguyen.png" alt="LIBERA Music School Thái Nguyên Logo" loading="lazy" width="180" height="50">
                 </a>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav class="nav-menu" id="navMenu">
                 <ul class="nav-list">
                     <li><a href="index.html">Trang chủ</a></li>
@@ -67,22 +72,27 @@
                     <li><a href="lien-he.html">Liên hệ</a></li>
                 </ul>
             </nav>
+            
             <div class="auth-buttons">
                 <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Đăng nhập</button>
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
+            
+            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
-                <div class="user-avatar" id="userAvatar"><span id="userInitial"></span></div>
+                <div class="user-avatar" id="userAvatar">
+                    <span id="userInitial"></span>
+                </div>
                 <span class="user-name" id="userName"></span>
                 <div class="user-dropdown">
-                    <a href="#"><i class="fas fa-user"></i> Hồ sơ</a>
-                    <a href="#"><i class="fas fa-key"></i> Đổi mật khẩu</a>
-                    <hr><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Hồ sơ</a>
+                    <a href="#" id="changePasswordLink"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                 </div>
             </div>
         </div>
     </header>
-
     <div class="breadcrumb">
         <div class="container">
             <a href="index.html">Trang chủ</a> <i class="fas fa-chevron-right"></i>

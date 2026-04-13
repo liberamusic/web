@@ -8,9 +8,15 @@
     
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
+    <meta name="geo.position" content="21.5929;105.8442" />
+    <meta name="ICBM" content="21.5929, 105.8442" />
     <link rel="canonical" href="https://[username].github.io/liberamusic/thu-vien.html">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -54,22 +60,19 @@
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
             
-            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
-                <div class="user-avatar" id="userAvatar">
-                    <span id="userInitial"></span>
-                </div>
+                <div class="user-avatar" id="userAvatar"><span id="userInitial"></span></div>
                 <span class="user-name" id="userName"></span>
                 <div class="user-dropdown">
                     <a href="#" id="profileLink"><i class="fas fa-user"></i> Hồ sơ</a>
                     <a href="#" id="changePasswordLink"><i class="fas fa-key"></i> Đổi mật khẩu</a>
-                    <hr>
-                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    <hr><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
             <a href="index.html">Trang chủ</a> <i class="fas fa-chevron-right"></i>
@@ -77,6 +80,7 @@
         </div>
     </div>
 
+    <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Thư viện</h1>
@@ -84,54 +88,187 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
     <section class="gallery-section">
         <div class="container">
+            <!-- Tab buttons -->
             <div class="gallery-tabs">
-                <button class="tab-btn active" data-tab="anh"><i class="fas fa-image"></i> Ảnh</button>
-                <button class="tab-btn" data-tab="video"><i class="fas fa-video"></i> Video</button>
+                <button class="tab-btn active" data-tab="anh">
+                    <i class="fas fa-image"></i> Hình ảnh
+                </button>
+                <button class="tab-btn" data-tab="video">
+                    <i class="fas fa-video"></i> Video
+                </button>
             </div>
 
+            <!-- Tab Ảnh -->
             <div id="tab-anh" class="tab-content active">
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-1.jpg" alt="Buổi biểu diễn piano tại LIBERA Thái Nguyên" loading="lazy">
+                        <div class="gallery-caption">
+                            <p>Biểu diễn Piano Gala 2024</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-2.jpg" alt="Lớp học violin tại LIBERA Thái Nguyên" loading="lazy">
+                        <div class="gallery-caption">
+                            <p>Lớp học Violin</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-3.jpg" alt="Đồng diễn hợp xướng tại LIBERA Thái Nguyên" loading="lazy">
+                        <div class="gallery-caption">
+                            <p>Đồng diễn Hợp xướng</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-4.jpg" alt="Lớp học cello tại LIBERA Thái Nguyên" loading="lazy">
+                        <div class="gallery-caption">
+                            <p>Lớp học Cello</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-5.jpg" alt="Lễ ra mắt LIBERA Music School Thái Nguyên" loading="lazy">
+                        <div class="gallery-caption">
+                            <p>Lễ ra mắt LIBERA</p>
+                        </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-6.jpg" alt="Workshop âm nhạc tại LIBERA Thái Nguyên" loading="lazy">
+                        <div class="gallery-caption">
+                            <p>Workshop Âm nhạc</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tab Video (nhúng YouTube) -->
             <div id="tab-video" class="tab-content">
                 <div class="video-grid">
                     <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/your-video-id-1" title="LIBERA Music School - Biểu diễn Piano Gala 2024 Thái Nguyên" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/VIDEO_ID_1" 
+                                title="LIBERA Music School - Biểu diễn Piano Gala 2024 Thái Nguyên" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
                         <h3>Biểu diễn Piano Gala 2024 tại Thái Nguyên</h3>
                         <p>Buổi biểu diễn đặc sắc của học viên LIBERA tại Trung tâm Văn hóa Thái Nguyên</p>
                     </div>
+                    
                     <div class="video-card">
-                        <iframe src="https://www.youtube.com/embed/your-video-id-2" title="Học viên LIBERA chơi Violin - Cảm nhận âm nhạc" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                                title="Học viên LIBERA chơi Violin - Cảm nhận âm nhạc" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
                         <h3>Học viên LIBERA chơi Violin</h3>
                         <p>Màn trình diễn violin đầy cảm xúc của học viên nhí tại LIBERA</p>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe 
+                                src="https://www.youtube.com/embed/VIDEO_ID_3" 
+                                title="LIBERA Music School - Giới thiệu khóa học Saxophone" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Giới thiệu khóa học Saxophone</h3>
+                        <p>Khám phá âm thanh cuốn hút của Saxophone cùng LIBERA</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">...</footer>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/Logo/logo-piano-thai-nguyen.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>LIBERA Music School - Chi nhánh Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Số 123 Đường Lương Ngọc Quyến, P. Hoàng Văn Thụ, TP. Thái Nguyên</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline: 0988.xxx.xxx - 0208.xxx.xxx</p>
+                        <p><i class="fas fa-envelope"></i> info@liberamusic.com</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Chương trình học</h4>
+                    <ul>
+                        <li><a href="piano.html">Piano</a></li>
+                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="saxophone.html">Saxophone</a></li>
+                        <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                        <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                        <li><a href="san-pham.html">Sản phẩm</a></li>
+                        <li><a href="thu-vien.html">Thư viện</a></li>
+                        <li><a href="lien-he.html">Liên hệ</a></li>
+                        <li><a href="dang-ky.html">Đăng ký học thử</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-zalo"></i></a>
+                    </div>
+                    <div class="google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.8442!3d21.5929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDM1JzM0LjQiTiAxMDXCsDUwJzM5LjEiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LIBERA Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Đăng nhập</button>
+                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+            </form>
+        </div>
+    </div>
+
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

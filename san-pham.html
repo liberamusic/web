@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhạc cụ và sách nhạc | LIBERA Music School Thái Nguyên</title>
-    <meta name="description" content="Mua đàn piano, violin, sách nhạc chính hãng tại Thái Nguyên. Giao hàng toàn Thái Nguyên, miễn phí vận chuyển nội thành. Bảo hành uy tín.">
+    <meta name="description" content="Mua đàn piano, violin, saxophone, sách nhạc chính hãng tại Thái Nguyên. Giao hàng toàn Thái Nguyên, miễn phí vận chuyển nội thành. Bảo hành uy tín.">
     
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
+    <meta name="geo.position" content="21.5929;105.8442" />
+    <meta name="ICBM" content="21.5929, 105.8442" />
     <link rel="canonical" href="https://[username].github.io/liberamusic/san-pham.html">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Schema Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Đàn piano điện Yamaha P45",
+      "description": "Đàn piano điện phù hợp cho người mới học tại Thái Nguyên",
+      "offers": {
+        "@type": "Offer",
+        "price": "12500000",
+        "priceCurrency": "VND",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- HEADER -->
@@ -54,22 +76,19 @@
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
             
-            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
-                <div class="user-avatar" id="userAvatar">
-                    <span id="userInitial"></span>
-                </div>
+                <div class="user-avatar" id="userAvatar"><span id="userInitial"></span></div>
                 <span class="user-name" id="userName"></span>
                 <div class="user-dropdown">
                     <a href="#" id="profileLink"><i class="fas fa-user"></i> Hồ sơ</a>
                     <a href="#" id="changePasswordLink"><i class="fas fa-key"></i> Đổi mật khẩu</a>
-                    <hr>
-                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                    <hr><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
             <a href="index.html">Trang chủ</a> <i class="fas fa-chevron-right"></i>
@@ -77,6 +96,7 @@
         </div>
     </div>
 
+    <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Sản phẩm âm nhạc</h1>
@@ -84,84 +104,202 @@
         </div>
     </section>
 
-    <section class="products">
+    <!-- Products Section -->
+    <section class="products-section">
         <div class="container">
+            <!-- Filter Buttons - ĐÃ TO HƠN RÕ RÀNG -->
             <div class="product-filters">
-                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn active" data-filter="all">Tất cả sản phẩm</button>
                 <button class="filter-btn" data-filter="instrument">Nhạc cụ</button>
                 <button class="filter-btn" data-filter="book">Sách nhạc</button>
                 <button class="filter-btn" data-filter="accessory">Phụ kiện</button>
             </div>
 
+            <!-- Products Grid -->
             <div class="product-grid">
+                <!-- Sản phẩm 1: Piano -->
                 <div class="product-card" data-category="instrument">
-                    <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-1.jpg" alt="Đàn piano điện Yamaha P45 bán tại Thái Nguyên" loading="lazy">
+                    <div class="product-image">
+                        <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-1.jpg" alt="Đàn piano điện Yamaha P45 bán tại Thái Nguyên" loading="lazy">
+                        <div class="product-tag">Hot</div>
+                    </div>
                     <div class="product-info">
                         <h3>Đàn piano điện Yamaha P45</h3>
                         <p>Đàn piano điện phù hợp cho người mới học tại Thái Nguyên</p>
-                        <div class="product-price">12.500.000đ</div>
-                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">Liên hệ mua hàng</button>
+                        <div class="product-price">12.500.000₫</div>
+                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">
+                            <i class="fas fa-phone-alt"></i> Liên hệ mua hàng
+                        </button>
                     </div>
                 </div>
 
+                <!-- Sản phẩm 2: Violin -->
                 <div class="product-card" data-category="instrument">
-                    <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-2.jpg" alt="Violin 4/4 cho người lớn bán tại Thái Nguyên" loading="lazy">
+                    <div class="product-image">
+                        <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-2.jpg" alt="Violin 4/4 cho người lớn bán tại Thái Nguyên" loading="lazy">
+                    </div>
                     <div class="product-info">
                         <h3>Violin 4/4 cho người lớn</h3>
                         <p>Violin cao cấp, âm thanh ấm áp, giao hàng tận nơi tại Thái Nguyên</p>
-                        <div class="product-price">3.200.000đ</div>
-                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">Liên hệ mua hàng</button>
+                        <div class="product-price">3.200.000₫</div>
+                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">
+                            <i class="fas fa-phone-alt"></i> Liên hệ mua hàng
+                        </button>
                     </div>
                 </div>
 
+                <!-- Sản phẩm 3: Sách Piano -->
                 <div class="product-card" data-category="book">
-                    <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-3.jpg" alt="Sách Piano cơ bản cho trẻ em tại Thái Nguyên" loading="lazy">
+                    <div class="product-image">
+                        <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-3.jpg" alt="Sách Piano cơ bản cho trẻ em tại Thái Nguyên" loading="lazy">
+                    </div>
                     <div class="product-info">
                         <h3>Sách "Piano cơ bản cho trẻ em"</h3>
                         <p>Giáo trình piano dành cho trẻ em, hình ảnh sinh động</p>
-                        <div class="product-price">150.000đ</div>
-                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">Liên hệ mua hàng</button>
+                        <div class="product-price">150.000₫</div>
+                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">
+                            <i class="fas fa-phone-alt"></i> Liên hệ mua hàng
+                        </button>
                     </div>
                 </div>
 
+                <!-- Sản phẩm 4: Saxophone (THAY THẾ Xylophone) -->
                 <div class="product-card" data-category="instrument">
-                    <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-4.jpg" alt="Xylophone gỗ 8 thanh cho trẻ em Thái Nguyên" loading="lazy">
+                    <div class="product-image">
+                        <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-4.jpg" alt="Saxophone alto cho người mới học tại Thái Nguyên" loading="lazy">
+                        <div class="product-tag">New</div>
+                    </div>
                     <div class="product-info">
-                        <h3>Xylophone gỗ 8 thanh</h3>
-                        <p>Nhạc cụ giáo dục sớm cho trẻ, an toàn, chất lượng cao</p>
-                        <div class="product-price">450.000đ</div>
-                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">Liên hệ mua hàng</button>
+                        <h3>Saxophone Alto</h3>
+                        <p>Nhạc cụ hơi phổ biến, âm thanh cuốn hút, dễ học</p>
+                        <div class="product-price">8.500.000₫</div>
+                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">
+                            <i class="fas fa-phone-alt"></i> Liên hệ mua hàng
+                        </button>
                     </div>
                 </div>
 
+                <!-- Sản phẩm 5: Melodica (GIỮ NGUYÊN) -->
                 <div class="product-card" data-category="instrument">
-                    <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-5.jpg" alt="Melodica 32 phím dễ học tại Thái Nguyên" loading="lazy">
+                    <div class="product-image">
+                        <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-5.jpg" alt="Melodica 32 phím dễ học tại Thái Nguyên" loading="lazy">
+                    </div>
                     <div class="product-info">
                         <h3>Melodica 32 phím</h3>
                         <p>Nhạc cụ dễ học, phù hợp cho người mới bắt đầu</p>
-                        <div class="product-price">850.000đ</div>
-                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">Liên hệ mua hàng</button>
+                        <div class="product-price">850.000₫</div>
+                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">
+                            <i class="fas fa-phone-alt"></i> Liên hệ mua hàng
+                        </button>
                     </div>
                 </div>
 
+                <!-- Sản phẩm 6: Phụ kiện -->
                 <div class="product-card" data-category="accessory">
-                    <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-6.jpg" alt="Giá đàn và phụ kiện âm nhạc tại Thái Nguyên" loading="lazy">
+                    <div class="product-image">
+                        <img src="images/San-Pham/day-hoc-San-Pham-tai-thai-nguyen-6.jpg" alt="Giá đàn và phụ kiện âm nhạc tại Thái Nguyên" loading="lazy">
+                    </div>
                     <div class="product-info">
-                        <h3>Giá đàn, phụ kiện đi kèm</h3>
+                        <h3>Giá đàn & phụ kiện</h3>
                         <p>Giá đàn chắc chắn, phụ kiện chính hãng, giao hàng tại Thái Nguyên</p>
-                        <div class="product-price">200.000đ - 500.000đ</div>
-                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">Liên hệ mua hàng</button>
+                        <div class="product-price">200.000₫ - 500.000₫</div>
+                        <button class="btn-buy" onclick="window.location.href='tel:0988xxx'">
+                            <i class="fas fa-phone-alt"></i> Liên hệ mua hàng
+                        </button>
                     </div>
                 </div>
             </div>
 
+            <!-- Local Shipping Info -->
             <div class="local-shipping">
-                <p><i class="fas fa-truck"></i> <strong>Giao hàng toàn Thái Nguyên – Miễn phí vận chuyển nội thành</strong> cho các quận Hoàng Văn Thụ, Túc Duyên, Trưng Vương, Tân Lập. Hỗ trợ giao ngoại thành Phổ Yên, Sông Công.</p>
+                <div class="shipping-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <div class="shipping-text">
+                    <strong>Giao hàng toàn Thái Nguyên – Miễn phí vận chuyển nội thành</strong>
+                    <p>Cho các quận Hoàng Văn Thụ, Túc Duyên, Trưng Vương, Tân Lập. Hỗ trợ giao ngoại thành Phổ Yên, Sông Công.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">...</footer>
+    <!-- FOOTER (ĐÃ THÊM ĐẦY ĐỦ) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/Logo/logo-piano-thai-nguyen.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>LIBERA Music School - Chi nhánh Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Số 123 Đường Lương Ngọc Quyến, P. Hoàng Văn Thụ, TP. Thái Nguyên</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline: 0988.xxx.xxx - 0208.xxx.xxx</p>
+                        <p><i class="fas fa-envelope"></i> info@liberamusic.com</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Chương trình học</h4>
+                    <ul>
+                        <li><a href="piano.html">Piano</a></li>
+                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="saxophone.html">Saxophone</a></li>
+                        <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                        <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                        <li><a href="san-pham.html">Sản phẩm</a></li>
+                        <li><a href="thu-vien.html">Thư viện</a></li>
+                        <li><a href="lien-he.html">Liên hệ</a></li>
+                        <li><a href="dang-ky.html">Đăng ký học thử</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-zalo"></i></a>
+                    </div>
+                    <div class="google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.8442!3d21.5929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDM1JzM0LjQiTiAxMDXCsDUwJzM5LjEiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LIBERA Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Đăng nhập</button>
+                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+            </form>
+        </div>
+    </div>
+
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

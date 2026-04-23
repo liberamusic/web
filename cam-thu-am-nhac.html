@@ -20,7 +20,180 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Schema LocalBusiness -->
+    <style>
+        /* Form đăng ký mới */
+        .register-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .register-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .register-header h3 {
+            font-size: 28px;
+            color: #2c3e66;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+        
+        .register-header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .register-header .badge-free {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .form-modern {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .form-group-full {
+            grid-column: span 2;
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2c3e66;
+            font-size: 18px;
+            z-index: 1;
+        }
+        
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 18px 14px 48px;
+            border: 2px solid #e8eef2;
+            border-radius: 16px;
+            font-size: 15px;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .input-group textarea {
+            padding: 14px 18px 14px 48px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: #2c3e66;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44,62,102,0.1);
+        }
+        
+        .input-group select {
+            appearance: none;
+            cursor: pointer;
+        }
+        
+        .input-group .select-arrow {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            pointer-events: none;
+        }
+        
+        .btn-register-modern {
+            width: 100%;
+            background: linear-gradient(135deg, #2c3e66, #1a2538);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .btn-register-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(44,62,102,0.3);
+            background: linear-gradient(135deg, #1a2538, #2c3e66);
+        }
+        
+        .guarantee-modern {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e8eef2;
+        }
+        
+        .guarantee-item-modern {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .guarantee-item-modern i {
+            font-size: 32px;
+            color: #2c3e66;
+            margin-bottom: 10px;
+        }
+        
+        .guarantee-item-modern h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .guarantee-item-modern p {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .form-modern {
+                grid-template-columns: 1fr;
+            }
+            .form-group-full {
+                grid-column: span 1;
+            }
+            .register-box {
+                padding: 25px;
+            }
+            .guarantee-modern {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,7 +284,6 @@
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
             
-            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
                 <div class="user-avatar" id="userAvatar">
                     <span id="userInitial"></span>
@@ -174,19 +346,119 @@
                 <p class="note"><i class="fas fa-info-circle"></i> Lớp 1:10, thời lượng 90 phút/buổi. Học phí áp dụng tại cơ sở Thái Nguyên.</p>
             </div>
 
-            <h2>Đăng ký học thử miễn phí</h2>
-            <form class="register-form-short" action="https://formspree.io/f/your-form-id" method="POST">
-                <div class="form-row">
-                    <input type="text" name="name" placeholder="Họ tên học viên" required>
-                    <input type="tel" name="phone" placeholder="Số điện thoại" required>
+            <!-- FORM ĐĂNG KÝ MỚI - ĐẸP HƠN -->
+            <div class="register-box">
+                <div class="register-header">
+                    <span class="badge-free"><i class="fas fa-gift"></i> HOÀN TOÀN MIỄN PHÍ</span>
+                    <h3>Đăng ký học thử <span style="color: #e74c3c;">1 buổi</span></h3>
+                    <p>Trải nghiệm phương pháp giảng dạy hiện đại cùng LIBERA</p>
                 </div>
-                <input type="hidden" name="course" value="Cảm thụ âm nhạc">
-                <button type="submit" class="btn-submit">Đăng ký ngay</button>
-            </form>
+                
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="form-modern">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="student_name" placeholder="Họ tên học viên *" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="number" name="age" placeholder="Tuổi *" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-user-friends"></i>
+                            <input type="text" name="parent_name" placeholder="Họ tên phụ huynh">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-phone-alt"></i>
+                            <input type="tel" name="phone" placeholder="Số điện thoại *" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-music"></i>
+                            <select name="course" required>
+                                <option value="">-- Chọn môn học * --</option>
+                                <option value="Piano">🎹 Piano</option>
+                                <option value="Violin">🎻 Violin</option>
+                                <option value="Hợp xướng">🎶 Hợp xướng</option>
+                                <option value="Cello">🎻 Cello</option>
+                                <option value="Saxophone">🎷 Saxophone</option>
+                                <option value="Thanh nhạc">🎤 Thanh nhạc</option>
+                                <option value="Cảm thụ âm nhạc" selected>🎼 Cảm thụ âm nhạc</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-clock"></i>
+                            <select name="shift">
+                                <option value="">Ca học mong muốn</option>
+                                <option value="Sáng">🌅 Sáng (08:00 - 11:30)</option>
+                                <option value="Chiều">☀️ Chiều (13:30 - 17:00)</option>
+                                <option value="Tối">🌙 Tối (18:00 - 20:30)</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-calendar-week"></i>
+                            <input type="date" name="expected_date" placeholder="Ngày dự kiến">
+                        </div>
+                        <div class="form-group-full">
+                            <div class="input-group">
+                                <i class="fas fa-chart-line"></i>
+                                <select name="source" required>
+                                    <option value="">Bạn biết đến LIBERA qua đâu? *</option>
+                                    <option value="Google">🔍 Google</option>
+                                    <option value="Facebook">📘 Facebook</option>
+                                    <option value="TikTok">📱 TikTok</option>
+                                    <option value="Người quen">👨‍👩‍👧‍👦 Người quen giới thiệu</option>
+                                    <option value="Đi ngang qua">🚶 Đi ngang qua thấy trung tâm</option>
+                                    <option value="Khác">📌 Khác</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-arrow"></i>
+                            </div>
+                        </div>
+                        <div class="form-group-full">
+                            <div class="input-group">
+                                <i class="fas fa-pen"></i>
+                                <textarea name="note" placeholder="Ghi chú thêm (nếu có)..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="course_detail" value="Cảm thụ âm nhạc">
+                    <button type="submit" class="btn-register-modern">
+                        <i class="fas fa-heart"></i> Đăng ký học thử miễn phí <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                
+                <div class="guarantee-modern">
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-gift"></i>
+                        <h4>Miễn phí 100%</h4>
+                        <p>Buổi học thử đầu tiên</p>
+                    </div>
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Không cam kết</h4>
+                        <p>Học thử - quyết định sau</p>
+                    </div>
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <h4>Giáo viên giàu kinh nghiệm</h4>
+                        <p>Trực tiếp giảng dạy</p>
+                    </div>
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Cơ sở hiện đại</h4>
+                        <p>Tại Thái Nguyên</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER - Đã cập nhật đầy đủ thông tin đơn vị -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">

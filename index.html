@@ -3,27 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>LIBERA Music School | Học âm nhạc tại Thái Nguyên</title>
-    <meta name="description" content="LIBERA Music School tại Thái Nguyên chuyên đào tạo Piano, Violin, Hợp xướng, Cello, Xylophone, Melodica. Giáo viên quốc tế, phương pháp hiện đại. Đăng ký học thử miễn phí ngay!">
-    <meta name="keywords" content="học piano Thái Nguyên, học violin Thái Nguyên, học nhạc Thái Nguyên, LIBERA Music School">
+    <title>LIBERA Music School | Học âm nhạc theo chuẩn AMEB & Suzuki tại Thái Nguyên</title>
+    <meta name="description" content="LIBERA Music School tại Thái Nguyên chuyên đào tạo Piano (AMEB), Violin (Suzuki), Cello (Suzuki), Saxophone. Giáo trình quốc tế, giáo viên giàu kinh nghiệm.">
+    <meta name="keywords" content="học piano AMEB Thái Nguyên, học violin Suzuki Thái Nguyên, học cello Suzuki Thái Nguyên, LIBERA Music School">
     
-    <!-- Geo Tags cho SEO Local Thái Nguyên -->
+    <!-- Geo Tags -->
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
     <meta name="geo.position" content="21.595051;105.836834" />
     <meta name="ICBM" content="21.595051, 105.836834" />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://[username].github.io/liberamusic/index.html">
+    <link rel="canonical" href="https://liberamusic.github.io/web/index.html">
     
-    <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Schema LocalBusiness - Đã cập nhật email mới -->
+    <style>
+        /* AMEB & Suzuki Certification Badges */
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #f8f9fa, #fff);
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 0 10px 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .cert-badge img {
+            height: 30px;
+            width: auto;
+        }
+        
+        .cert-badge span {
+            font-weight: 600;
+            color: #2c3e66;
+        }
+        
+        .hero-cert {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* Curriculum Highlight */
+        .curriculum-highlight {
+            background: linear-gradient(135deg, #f0f4f8, #e8eef4);
+            border-radius: 24px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .curriculum-highlight h2 {
+            font-size: 32px;
+            color: #2c3e66;
+            margin-bottom: 20px;
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .curriculum-item {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .curriculum-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .curriculum-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c3e66, #1a2538);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .curriculum-icon i {
+            font-size: 40px;
+            color: white;
+        }
+        
+        .curriculum-item h3 {
+            font-size: 22px;
+            color: #2c3e66;
+            margin-bottom: 10px;
+        }
+        
+        .curriculum-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+            .curriculum-highlight {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+    
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -94,10 +199,10 @@
                     <li class="dropdown">
                         <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="piano.html">Piano</a></li>
-                            <li><a href="violin.html">Violin</a></li>
+                            <li><a href="piano.html">Piano (AMEB)</a></li>
+                            <li><a href="violin.html">Violin (Suzuki)</a></li>
                             <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                            <li><a href="cello.html">Cello</a></li>
+                            <li><a href="cello.html">Cello (Suzuki)</a></li>
                             <li><a href="saxophone.html">Saxophone</a></li>
                             <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                             <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -114,7 +219,6 @@
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
             
-            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
                 <div class="user-avatar" id="userAvatar">
                     <span id="userInitial"></span>
@@ -139,8 +243,24 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>LIBERA Music School – Khơi nguồn cảm hứng âm nhạc</h1>
-            <p class="hero-subtitle">Chuyên dạy và đào tạo Piano, Violin, Hợp xướng, Cello, Saxophone, Cảm thụ âm nhạc tại Thái Nguyên </p>
+            <p class="hero-subtitle">Chuyên dạy Piano (AMEB), Violin (Suzuki), Cello (Suzuki), Hợp xướng, Saxophone, Cảm thụ âm nhạc tại Thái Nguyên</p>
             <a href="dang-ky.html" class="btn-hero">Đăng ký học thử miễn phí <i class="fas fa-arrow-right"></i></a>
+            
+            <!-- AMEB & Suzuki Cert Badges -->
+            <div class="hero-cert">
+                <div class="cert-badge">
+                    <i class="fas fa-certificate" style="color: #2c3e66; font-size: 20px;"></i>
+                    <span>AMEB Piano Levels 1-8</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate" style="color: #2c3e66; font-size: 20px;"></i>
+                    <span>Suzuki Violin Book 1-10</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate" style="color: #2c3e66; font-size: 20px;"></i>
+                    <span>Suzuki Cello Book 1-8</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -150,24 +270,59 @@
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-chalkboard-user"></i></div>
-                    <h3>Giáo viên Quốc tế</h3>
-                    <p>Đội ngũ giáo viên giàu kinh nghiệm, tốt nghiệp từ các học viện âm nhạc danh tiếng trong và ngoài nước.</p>
+                    <h3>Giáo viên AMEB Suzuki</h3>
+                    <p>Đội ngũ giáo viên được đào tạo bài bản theo giáo trình AMEB và Suzuki, tốt nghiệp từ các học viện âm nhạc danh tiếng.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-music"></i></div>
-                    <h3>Phương pháp Hiện đại</h3>
-                    <p>Giáo trình chuẩn quốc tế, kết hợp công nghệ và thực hành, giúp học viên tiến bộ nhanh chóng.</p>
+                    <h3>Giáo trình Quốc tế</h3>
+                    <p>Chuẩn AMEB (Australia), Suzuki (Nhật Bản), kết hợp phương pháp hiện đại, giúp học viên tiến bộ nhanh chóng.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
-                    <h3>Cam kết Tiến bộ</h3>
-                    <p>Cam kết học viên đạt được kỹ năng sau mỗi khóa học, hỗ trợ học lại miễn phí nếu chưa đạt.</p>
+                    <h3>Cam kết Đầu ra</h3>
+                    <p>Cam kết học viên đạt trình độ tương ứng sau mỗi khóa học, hỗ trợ luyện thi chứng chỉ quốc tế.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 8 MÔN HỌC -->
+    <!-- Curriculum Highlight (AMEB + Suzuki) -->
+    <div class="container">
+        <div class="curriculum-highlight">
+            <h2>📚 Giáo trình Chuẩn Quốc tế</h2>
+            <p style="font-size: 18px; max-width: 700px; margin: 0 auto;">LIBERA tự hào là trung tâm đầu tiên tại Thái Nguyên áp dụng chính thức giáo trình AMEB Piano và Suzuki Violin/Cello.</p>
+            
+            <div class="curriculum-grid">
+                <div class="curriculum-item">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-piano"></i>
+                    </div>
+                    <h3>Piano (AMEB)</h3>
+                    <p>Giáo trình AMEB Australia từ Grade 1 đến Grade 8, lộ trình rõ ràng, luyện thi chứng chỉ quốc tế.</p>
+                    <span class="curriculum-badge">AMEB Certified</span>
+                </div>
+                <div class="curriculum-item">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-violin"></i>
+                    </div>
+                    <h3>Violin (Suzuki)</h3>
+                    <p>Phương pháp Suzuki - "Ngôn ngữ mẹ đẻ", phát triển toàn diện kỹ năng từ Book 1 đến Book 10.</p>
+                    <span class="curriculum-badge">Suzuki Method</span>
+                </div>
+                <div class="curriculum-item">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Cello (Suzuki)</h3>
+                    <p>Chuyên sâu Cello theo giáo trình Suzuki Book 1-8, âm thanh ấm áp, kỹ thuật chuẩn.</p>
+                    <span class="curriculum-badge">Suzuki Method</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7 MÔN HỌC -->
     <section class="courses">
         <div class="container">
             <div class="section-header">
@@ -176,45 +331,45 @@
             </div>
             <div class="courses-grid">
                 <div class="course-card">
-                    <img src="images/Piano/day-hoc-Piano-tai-thai-nguyen-1.jpg" alt="Học piano tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
-                    <h3>Piano</h3>
-                    <p>Khóa học piano từ cơ bản đến nâng cao</p>
+                    <img src="images/Piano/day-hoc-Piano-tai-thai-nguyen-1.jpg" alt="Học piano AMEB tại Thái Nguyên" loading="lazy">
+                    <h3>Piano <span style="font-size: 12px; background:#2c3e66; color:white; padding:2px 8px; border-radius:20px;">AMEB</span></h3>
+                    <p>Chương trình AMEB từ cơ bản đến nâng cao, luyện thi chứng chỉ quốc tế</p>
                     <a href="piano.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="course-card">
-                    <img src="images/Violin/day-hoc-Violin-tai-thai-nguyen-13.jpg" alt="Học violin tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
-                    <h3>Violin</h3>
-                    <p>Khóa học violin chuyên nghiệp</p>
+                    <img src="images/Violin/day-hoc-Violin-tai-thai-nguyen-13.jpg" alt="Học violin Suzuki tại Thái Nguyên" loading="lazy">
+                    <h3>Violin <span style="font-size: 12px; background:#2c3e66; color:white; padding:2px 8px; border-radius:20px;">Suzuki</span></h3>
+                    <p>Phương pháp Suzuki Nhật Bản, từ Book 1 đến Book 10</p>
                     <a href="violin.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="course-card">
-                    <img src="images/Hop-Xuong/day-hoc-Hop-Xuong-tai-thai-nguyen-1.jpg" alt="Học hợp xướng tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <img src="images/Hop-Xuong/day-hoc-Hop-Xuong-tai-thai-nguyen-1.jpg" alt="Học hợp xướng tại Thái Nguyên" loading="lazy">
                     <h3>Hợp xướng</h3>
-                    <p>Phát triển kỹ năng thanh nhạc tập thể</p>
+                    <p>Phát triển kỹ năng thanh nhạc tập thể, kỹ thuật hát bè chuyên nghiệp</p>
                     <a href="hop-xuong.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="course-card">
-                    <img src="images/Cello/day-hoc-Cello-tai-thai-nguyen-1.png" alt="Học cello tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
-                    <h3>Cello</h3>
-                    <p>Khóa học cello đầm ấm và sâu lắng</p>
+                    <img src="images/Cello/day-hoc-Cello-tai-thai-nguyen-1.png" alt="Học cello Suzuki tại Thái Nguyên" loading="lazy">
+                    <h3>Cello <span style="font-size: 12px; background:#2c3e66; color:white; padding:2px 8px; border-radius:20px;">Suzuki</span></h3>
+                    <p>Chuyên sâu Cello Suzuki, âm thanh ấm áp, kỹ thuật chuẩn quốc tế</p>
                     <a href="cello.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="course-card">
-                    <img src="images/Saxophone/day-hoc-Saxophone-tai-thai-nguyen-1.png" alt="Học saxophone tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <img src="images/Saxophone/day-hoc-Saxophone-tai-thai-nguyen-1.png" alt="Học saxophone tại Thái Nguyên" loading="lazy">
                     <h3>Saxophone</h3>
-                    <p>Khóa học saxophone</p>
+                    <p>Khóa học saxophone từ cơ bản đến nâng cao</p>
                     <a href="saxophone.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="course-card">
-                    <img src="images/Thanh-Nhac/day-hoc-Thanh-Nhac-tai-thai-nguyen-1.png" alt="Học thanh nhạc tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <img src="images/Thanh-Nhac/day-hoc-Thanh-Nhac-tai-thai-nguyen-1.png" alt="Học thanh nhạc tại Thái Nguyên" loading="lazy">
                     <h3>Thanh nhạc</h3>
-                    <p>Khóa học thanh nhạc chuyên sâu</p>
+                    <p>Khóa học thanh nhạc chuyên sâu, kỹ thuật luyện thanh hiện đại</p>
                     <a href="thanh-nhac.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="course-card">
-                    <img src="images/Cam-Thu-Am-Nhac/day-hoc-Cam-Thu-Am-Nhac-tai-thai-nguyen-1.jpg" alt="Học cảm thụ âm nhạc tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <img src="images/Cam-Thu-Am-Nhac/day-hoc-Cam-Thu-Am-Nhac-tai-thai-nguyen-1.jpg" alt="Học cảm thụ âm nhạc tại Thái Nguyên" loading="lazy">
                     <h3>Cảm thụ âm nhạc</h3>
-                    <p>Khóa học dành cho trẻ từ 3-6 tuổi</p>
+                    <p>Khóa học dành cho trẻ từ 3-6 tuổi, nền tảng vững chắc</p>
                     <a href="cam-thu-am-nhac.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -226,12 +381,12 @@
         <div class="container">
             <div class="intro-grid">
                 <div class="intro-image">
-                    <img src="images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-8.jpg" alt="LIBERA Music School cơ sở Thái Nguyên" loading="lazy" width="500" height="400">
+                    <img src="images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-8.jpg" alt="LIBERA Music School cơ sở Thái Nguyên" loading="lazy">
                 </div>
                 <div class="intro-content">
                     <h2>LIBERA Music School – Nghệ thuật không biên giới</h2>
                     <p>LIBERA tự hào là điểm đến âm nhạc tin cậy cho học viên khắp trung tâm TP Thái Nguyên, Túc Duyên, Gia Sàng, Phan Đình Phùng, Hoàng Văn Thụ, Tân Lập, Phú Xá, Quang Vinh, Trưng Vương và các huyện lân cận như Đồng Hỷ, Phú Bình, Sông Công, Phổ Yên.</p>
-                    <p>Với phương pháp giảng dạy hiện đại, giáo viên giàu kinh nghiệm, chúng tôi cam kết mang đến trải nghiệm âm nhạc tốt nhất cho học viên.</p>
+                    <p>Với phương pháp giảng dạy hiện đại theo chuẩn AMEB và Suzuki, giáo viên giàu kinh nghiệm, chúng tôi cam kết mang đến trải nghiệm âm nhạc tốt nhất cho học viên.</p>
                     <a href="gioi-thieu.html" class="btn-more">Xem thêm <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -243,13 +398,13 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Sẵn sàng trở thành nghệ sĩ?</h2>
-                <p>Hãy để LIBERA đồng hành cùng bạn trên con đường âm nhạc</p>
+                <p>Hãy để LIBERA đồng hành cùng bạn trên con đường âm nhạc với giáo trình chuẩn AMEB & Suzuki</p>
                 <a href="dang-ky.html" class="btn-cta">Đăng ký ngay <i class="fas fa-heart"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER - Đã cập nhật email chính xác -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -258,19 +413,21 @@
                         <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
                     </div>
                     <div class="footer-contact">
-                        <p><strong>LIBERA Music School - Chi nhánh Thái Nguyên</strong></p>
-                        <p><i class="fas fa-map-marker-alt"></i> Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ, TP. Thái Nguyên</p>
-                        <p><i class="fas fa-phone-alt"></i> Hotline: 0975 765 661</p>
+                        <p><strong>Libera Music School - Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ, P. Phan Đình Phùng, Thành phố Thái Nguyên, Tỉnh Thái Nguyên.</p>
+                        <p><i class="fas fa-map-pin"></i> Mã bưu chính: 25110</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline/Zalo: 0975 765 661</p>
                         <p><i class="fas fa-envelope"></i> liberamusicschooltn@gmail.com</p>
+                        <p><i class="fas fa-globe"></i> liberamusic.github.io/web/</p>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h4>Chương trình học</h4>
                     <ul>
-                        <li><a href="piano.html">Piano</a></li>
-                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="piano.html">Piano (AMEB)</a></li>
+                        <li><a href="violin.html">Violin (Suzuki)</a></li>
                         <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="cello.html">Cello (Suzuki)</a></li>
                         <li><a href="saxophone.html">Saxophone</a></li>
                         <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                         <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -296,37 +453,62 @@
                         <a href="#"><i class="fab fa-zalo"></i></a>
                     </div>
                     <div class="google-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.836834!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x0!2zMjHCsDM1JzQyLjIiTiAxMDXCsDUwJzEyLjYiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.037!2d105.8346597!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x3b7f6d7a3c2e1f9e!2zVOG6p3UgNCwgVG_DoiBOaMOgIFRoYWkgTmd1eeG6r24gSG9tZSBDZW50ZXIsIFPhu5EgMSDEkMex4budbmcgUGjhu6cgTOG7hW4sIFBobsaw4budaW5nIEhvw6BuZyBWxINuIFThu6UsIFRow6FpIE5ndXnDqm4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" 
+                            width="100%" height="150" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 LIBERA Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
+                <p>&copy; 2024 Libera Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- LOGIN MODAL -->
+    <!-- LOGIN MODAL - ĐẸP HƠN -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <h2>Đăng nhập</h2>
+            
+            <!-- Logo trong modal -->
+            <div class="modal-logo">
+                <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School" style="height: 50px;">
+            </div>
+            
+            <h2>Chào mừng trở lại</h2>
+            <p class="modal-subtitle">Đăng nhập để quản lý khóa học của bạn</p>
+            
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
-                    <input type="text" id="username" name="username" required>
+                <div class="input-group-modal">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" id="username" name="username" placeholder="Email hoặc mã nhân viên" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="password" required>
+                
+                <div class="input-group-modal">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                    <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
                 </div>
-                <button type="submit" class="btn-submit">Đăng nhập</button>
-                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+                
+                <div class="modal-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                </div>
+                
+                <button type="submit" class="btn-login-modal">
+                    <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                </button>
             </form>
+            
+            <div class="modal-footer">
+                <p>Chưa có tài khoản? <a href="dang-ky.html">Đăng ký ngay</a></p>
+            </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

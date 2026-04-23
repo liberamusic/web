@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LIBERA Music School | Học âm nhạc tại Thái Nguyên</title>
+    <meta name="description" content="LIBERA Music School tại Thái Nguyên chuyên đào tạo Piano, Violin, Hợp xướng, Cello, Xylophone, Melodica. Giáo viên quốc tế, phương pháp hiện đại. Đăng ký học thử miễn phí ngay!">
+    <meta name="keywords" content="học piano Thái Nguyên, học violin Thái Nguyên, học nhạc Thái Nguyên, LIBERA Music School">
+    
+    <!-- Geo Tags cho SEO Local Thái Nguyên -->
+    <meta name="geo.region" content="VN-69" />
+    <meta name="geo.placename" content="Thái Nguyên" />
+    <meta name="geo.position" content="21.595051;105.836834" />
+    <meta name="ICBM" content="21.595051, 105.836834" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://[username].github.io/liberamusic/index.html">
+    
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Schema LocalBusiness - Đã cập nhật email mới -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicSchool",
+  "name": "Libera Music School - Thái Nguyên",
+  "image": "https://liberamusic.github.io/web/images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png",
+  "url": "https://liberamusic.github.io/web/",
+  "telephone": "+84975765661",
+  "email": "liberamusicschooltn@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ",
+    "addressLocality": "Thái Nguyên",
+    "addressRegion": "Thái Nguyên",
+    "postalCode": "25110",
+    "addressCountry": "VN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 21.595051,
+    "longitude": 105.836834
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "87"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:30",
+      "closes": "22:30"
+    }
+  ],
+  "sameAs": [
+    "https://liberamusic.github.io/web/"
+  ]
+}
+</script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên Logo" loading="lazy" width="180" height="50">
+                </a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li class="dropdown">
+                        <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="piano.html">Piano</a></li>
+                            <li><a href="violin.html">Violin</a></li>
+                            <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                            <li><a href="cello.html">Cello</a></li>
+                            <li><a href="saxophone.html">Saxophone</a></li>
+                            <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                            <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="thu-vien.html">Thư viện</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Đăng nhập</button>
+                <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
+            </div>
+            
+            <!-- User menu (ẩn khi chưa đăng nhập) -->
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <div class="user-avatar" id="userAvatar">
+                    <span id="userInitial"></span>
+                </div>
+                <span class="user-name" id="userName"></span>
+                <div class="user-dropdown">
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Hồ sơ</a>
+                    <a href="#" id="changePasswordLink"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SLIDESHOW SECTION -->
+    <section class="hero-slideshow">
+        <div class="slideshow-container" id="heroSlideshow"></div>
+        <button class="slide-nav prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="slide-nav next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        <div class="slide-dots" id="slideDots"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>LIBERA Music School – Khơi nguồn cảm hứng âm nhạc</h1>
+            <p class="hero-subtitle">Chuyên dạy và đào tạo Piano, Violin, Hợp xướng, Cello, Saxophone, Cảm thụ âm nhạc tại Thái Nguyên </p>
+            <a href="dang-ky.html" class="btn-hero">Đăng ký học thử miễn phí <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- 3 LỢI ÍCH -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Giáo viên Quốc tế</h3>
+                    <p>Đội ngũ giáo viên giàu kinh nghiệm, tốt nghiệp từ các học viện âm nhạc danh tiếng trong và ngoài nước.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-music"></i></div>
+                    <h3>Phương pháp Hiện đại</h3>
+                    <p>Giáo trình chuẩn quốc tế, kết hợp công nghệ và thực hành, giúp học viên tiến bộ nhanh chóng.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Cam kết Tiến bộ</h3>
+                    <p>Cam kết học viên đạt được kỹ năng sau mỗi khóa học, hỗ trợ học lại miễn phí nếu chưa đạt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8 MÔN HỌC -->
+    <section class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Chương trình đào tạo</h2>
+                <p>Đa dạng các bộ môn âm nhạc cho mọi lứa tuổi</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="images/Piano/day-hoc-Piano-tai-thai-nguyen-1.jpg" alt="Học piano tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Piano</h3>
+                    <p>Khóa học piano từ cơ bản đến nâng cao</p>
+                    <a href="piano.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Violin/day-hoc-Violin-tai-thai-nguyen-13.jpg" alt="Học violin tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Violin</h3>
+                    <p>Khóa học violin chuyên nghiệp</p>
+                    <a href="violin.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Hop-Xuong/day-hoc-Hop-Xuong-tai-thai-nguyen-1.jpg" alt="Học hợp xướng tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Hợp xướng</h3>
+                    <p>Phát triển kỹ năng thanh nhạc tập thể</p>
+                    <a href="hop-xuong.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Cello/day-hoc-Cello-tai-thai-nguyen-1.png" alt="Học cello tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Cello</h3>
+                    <p>Khóa học cello đầm ấm và sâu lắng</p>
+                    <a href="cello.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Saxophone/day-hoc-Saxophone-tai-thai-nguyen-1.png" alt="Học saxophone tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Saxophone</h3>
+                    <p>Khóa học saxophone</p>
+                    <a href="saxophone.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Thanh-Nhac/day-hoc-Thanh-Nhac-tai-thai-nguyen-1.png" alt="Học thanh nhạc tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Thanh nhạc</h3>
+                    <p>Khóa học thanh nhạc chuyên sâu</p>
+                    <a href="thanh-nhac.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="course-card">
+                    <img src="images/Cam-Thu-Am-Nhac/day-hoc-Cam-Thu-Am-Nhac-tai-thai-nguyen-1.jpg" alt="Học cảm thụ âm nhạc tại Thái Nguyên - LIBERA Music School" loading="lazy" width="300" height="200">
+                    <h3>Cảm thụ âm nhạc</h3>
+                    <p>Khóa học dành cho trẻ từ 3-6 tuổi</p>
+                    <a href="cam-thu-am-nhac.html" class="btn-course">Xem chi tiết <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIỚI THIỆU NGẮN -->
+    <section class="intro-short">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-image">
+                    <img src="images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-8.jpg" alt="LIBERA Music School cơ sở Thái Nguyên" loading="lazy" width="500" height="400">
+                </div>
+                <div class="intro-content">
+                    <h2>LIBERA Music School – Nghệ thuật không biên giới</h2>
+                    <p>LIBERA tự hào là điểm đến âm nhạc tin cậy cho học viên khắp trung tâm TP Thái Nguyên, Túc Duyên, Gia Sàng, Phan Đình Phùng, Hoàng Văn Thụ, Tân Lập, Phú Xá, Quang Vinh, Trưng Vương và các huyện lân cận như Đồng Hỷ, Phú Bình, Sông Công, Phổ Yên.</p>
+                    <p>Với phương pháp giảng dạy hiện đại, giáo viên giàu kinh nghiệm, chúng tôi cam kết mang đến trải nghiệm âm nhạc tốt nhất cho học viên.</p>
+                    <a href="gioi-thieu.html" class="btn-more">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA CUỐI -->
+    <section class="cta-footer-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Sẵn sàng trở thành nghệ sĩ?</h2>
+                <p>Hãy để LIBERA đồng hành cùng bạn trên con đường âm nhạc</p>
+                <a href="dang-ky.html" class="btn-cta">Đăng ký ngay <i class="fas fa-heart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - Đã cập nhật email chính xác -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>LIBERA Music School - Chi nhánh Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ, TP. Thái Nguyên</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline: 0975 765 661</p>
+                        <p><i class="fas fa-envelope"></i> liberamusicschooltn@gmail.com</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Chương trình học</h4>
+                    <ul>
+                        <li><a href="piano.html">Piano</a></li>
+                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="saxophone.html">Saxophone</a></li>
+                        <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                        <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                        <li><a href="san-pham.html">Sản phẩm</a></li>
+                        <li><a href="thu-vien.html">Thư viện</a></li>
+                        <li><a href="lien-he.html">Liên hệ</a></li>
+                        <li><a href="dang-ky.html">Đăng ký học thử</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-zalo"></i></a>
+                    </div>
+                    <div class="google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.836834!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x0!2zMjHCsDM1JzQyLjIiTiAxMDXCsDUwJzEyLjYiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LIBERA Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Đăng nhập</button>
+                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

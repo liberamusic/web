@@ -7,7 +7,7 @@
     <meta name="description" content="LIBERA Music School - Trung tâm đào tạo âm nhạc uy tín tại Thái Nguyên. Với đội ngũ giáo viên giàu kinh nghiệm, cơ sở vật chất hiện đại.">
     <meta name="keywords" content="giới thiệu LIBERA Thái Nguyên, trung tâm âm nhạc Thái Nguyên, học nhạc Thái Nguyên">
     
-    <!-- Geo Tags cho SEO Local Thái Nguyên (Đã cập nhật tọa độ chính xác) -->
+    <!-- Geo Tags -->
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
     <meta name="geo.position" content="21.595051;105.836834" />
@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Schema LocalBusiness - Đã cập nhật thông tin đơn vị -->
+    <style>
+       
+    </style>
+    
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -91,10 +94,10 @@
                     <li class="dropdown">
                         <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="piano.html">Piano</a></li>
-                            <li><a href="violin.html">Violin</a></li>
+                            <li><a href="piano.html">Piano (AMEB)</a></li>
+                            <li><a href="violin.html">Violin (Suzuki)</a></li>
                             <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                            <li><a href="cello.html">Cello</a></li>
+                            <li><a href="cello.html">Cello (Suzuki)</a></li>
                             <li><a href="saxophone.html">Saxophone</a></li>
                             <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                             <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -111,7 +114,6 @@
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
             
-            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
                 <div class="user-avatar" id="userAvatar">
                     <span id="userInitial"></span>
@@ -127,6 +129,14 @@
         </div>
     </header>
 
+    <!-- Hero Section mới -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Về LIBERA Music School</h1>
+            <p>Hành trình lan tỏa đam mê âm nhạc tại Thái Nguyên</p>
+        </div>
+    </section>
+
     <!-- Breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
@@ -135,29 +145,61 @@
         </div>
     </div>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <h1>Về LIBERA Music School Thái Nguyên</h1>
-            <p>Hành trình lan tỏa đam mê âm nhạc</p>
-        </div>
-    </section>
-
-    <!-- Content -->
+    <!-- Content Section -->
     <section class="intro-content-page">
         <div class="container">
             <div class="intro-grid">
                 <div class="intro-text">
                     <h2>Câu chuyện của chúng tôi</h2>
-                    <p>LIBERA Music School được thành lập năm 2018 với sứ mệnh mang nền âm nhạc chất lượng cao đến với học viên Thái Nguyên.</p>
-                    <p>LIBERA tự hào là điểm đến âm nhạc tin cậy cho học viên khắp trung tâm TP Thái Nguyên, Túc Duyên, Gia Sàng, Phan Đình Phùng, Hoàng Văn Thụ, Tân Lập, Phú Xá, Quang Vinh, Trưng Vương và các huyện lân cận như Đồng Hỷ, Phú Bình, Sông Công, Phổ Yên.</p>
-                    <h3>Sứ mệnh</h3>
-                    <p>Phát triển tài năng âm nhạc, nuôi dưỡng tâm hồn và kiến tạo giá trị bền vững cho cộng đồng.</p>
-                    <h3>Tầm nhìn</h3>
-                    <p>Trở thành học viện âm nhạc hàng đầu tại Thái Nguyên và khu vực miền Bắc.</p>
+                    <p class="intro-text-modern">LIBERA Music School được thành lập năm 2018 với sứ mệnh mang nền âm nhạc chất lượng cao đến với học viên Thái Nguyên.</p>
+                    <p class="intro-text-modern">LIBERA tự hào là điểm đến âm nhạc tin cậy cho học viên khắp trung tâm TP Thái Nguyên, Túc Duyên, Gia Sàng, Phan Đình Phùng, Hoàng Văn Thụ, Tân Lập, Phú Xá, Quang Vinh, Trưng Vương và các huyện lân cận như Đồng Hỷ, Phú Bình, Sông Công, Phổ Yên.</p>
                 </div>
                 <div class="intro-image">
-                    <img src="images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-8.jpg" alt="LIBERA Music School Thái Nguyên cơ sở" loading="lazy">
+                    <img src="images/Hero/Hero-day-hoc-piano-tai-thai-nguyen-8.jpg" alt="LIBERA Music School Thái Nguyên" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <div class="container">
+        <div class="mission-vision">
+            <div class="mission-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Sứ mệnh</h3>
+                <p>Phát triển tài năng âm nhạc, nuôi dưỡng tâm hồn và kiến tạo giá trị bền vững cho cộng đồng.</p>
+            </div>
+            <div class="vision-card">
+                <i class="fas fa-eye"></i>
+                <h3>Tầm nhìn</h3>
+                <p>Trở thành học viện âm nhạc hàng đầu tại Thái Nguyên và khu vực miền Bắc.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics -->
+    <section class="stats-modern">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt" style="font-size: 40px;"></i>
+                    <div class="stat-number-modern">2018</div>
+                    <p>Năm thành lập</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users" style="font-size: 40px;"></i>
+                    <div class="stat-number-modern">100+</div>
+                    <p>Học viên</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-chalkboard-user" style="font-size: 40px;"></i>
+                    <div class="stat-number-modern">10+</div>
+                    <p>Giáo viên</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-music" style="font-size: 40px;"></i>
+                    <div class="stat-number-modern">50+</div>
+                    <p>Buổi biểu diễn</p>
                 </div>
             </div>
         </div>
@@ -171,95 +213,47 @@
                 <p>Những người truyền cảm hứng âm nhạc</p>
             </div>
             <div class="teachers-grid">
-                <!-- Giáo viên 1 -->
-                <div class="teacher-card">
-                    <img src="images/Giao-Vien/ngoc-hoai-piano-libera-thai-nguyen.jpg" 
-                        alt="Cô Dương Ngọc Hoài - Giáo viên Piano tại Thái Nguyên" 
-                        loading="lazy">
+                <div class="teacher-card-modern">
+                    <img src="images/Giao-Vien/ngoc-hoai-piano-libera-thai-nguyen.jpg" alt="Cô Dương Ngọc Hoài">
                     <h3>Dương Ngọc Hoài</h3>
-                    <p>Giáo viên Piano - 10 năm kinh nghiệm giảng dạy tại Thái Nguyên</p>
+                    <p>Giáo viên Piano - 10 năm kinh nghiệm</p>
+                    <span class="teacher-badge"><i class="fas fa-star"></i> Chuyên gia Piano</span>
                 </div>
-                <!-- Giáo viên 2 -->
-                <div class="teacher-card">
-                    <img src="images/Giao-Vien/thay-tu-violin-libera-thai-nguyen.jpg" 
-                        alt="Thầy Tú - Giáo viên Violin tại Thái Nguyên" 
-                        loading="lazy">
+                <div class="teacher-card-modern">
+                    <img src="images/Giao-Vien/thay-tu-violin-libera-thai-nguyen.jpg" alt="Thầy Tú">
                     <h3>Thầy Tú</h3>
-                    <p>Giáo viên Violin - Tốt nghiệp Học viện Âm nhạc Quốc gia</p>
+                    <p>Giáo viên Violin - HV Âm nhạc Quốc gia</p>
+                    <span class="teacher-badge"><i class="fas fa-star"></i> Chuyên gia Violin</span>
                 </div>
-                <!-- Giáo viên 3 -->
-                <div class="teacher-card">
-                    <img src="images/Giao-Vien/duong-huong-day-piano-thanh-nhac-cam-thu-am-nhac-cello-thai-nguyen.jpg" 
-                        alt="Cô Dương Thị Hương - Trưởng bộ môn Piano và Hợp xướng tại Thái Nguyên" 
-                        loading="lazy">
+                <div class="teacher-card-modern">
+                    <img src="images/Giao-Vien/duong-huong-day-piano-thanh-nhac-cam-thu-am-nhac-cello-thai-nguyen.jpg" alt="Cô Dương Thị Hương">
                     <h3>Dương Thị Hương</h3>
-                    <p>Trưởng bộ môn Hợp xướng, Piano - 15 năm kinh nghiệm</p>
+                    <p>Trưởng bộ môn Hợp xướng, Piano</p>
+                    <span class="teacher-badge"><i class="fas fa-star"></i> 15 năm kinh nghiệm</span>
                 </div>
-                <!-- Giáo viên 4 -->
-                <div class="teacher-card">
-                    <img src="images/Giao-Vien/khanh-linh-piano-tro-giang-thai-nguyen.jpg" 
-                        alt="Cô Khánh Linh - Giáo Viên Piano tại Thái Nguyên" 
-                        loading="lazy">
+                <div class="teacher-card-modern">
+                    <img src="images/Giao-Vien/khanh-linh-piano-tro-giang-thai-nguyen.jpg" alt="Cô Khánh Linh">
                     <h3>Khánh Linh</h3>
-                    <p>Giáo viên Piano - 5 năm kinh nghiệm giảng dạy tại Thái Nguyên</p>
+                    <p>Giáo viên Piano - 5 năm kinh nghiệm</p>
+                    <span class="teacher-badge"><i class="fas fa-star"></i> Giáo viên trẻ</span>
                 </div>
-                <!-- Giáo viên 5 -->
-                <div class="teacher-card">
-                    <img src="images/Giao-Vien/duc-manh-day-tro-giang-piano-thai-nguyen.jpg" 
-                        alt="Thầy Đức Mạnh - Giáo Viên Piano, Thanh nhạc tại Thái Nguyên" 
-                        loading="lazy">
+                <div class="teacher-card-modern">
+                    <img src="images/Giao-Vien/duc-manh-day-tro-giang-piano-thai-nguyen.jpg" alt="Thầy Đức Mạnh">
                     <h3>Đức Mạnh</h3>
-                    <p>Giáo viên Piano, Thanh nhạc - 3 năm kinh nghiệm giảng dạy tại Thái Nguyên</p>
+                    <p>Giáo viên Piano, Thanh nhạc</p>
+                    <span class="teacher-badge"><i class="fas fa-star"></i> Đa năng</span>
                 </div>
-                <!-- Giáo viên 6 -->
-                <div class="teacher-card">
-                    <img src="images/Giao-Vien/nguyen-thi-hanh-tro-gian-piano-libera-thai-nguyen.jpg" 
-                        alt="Cô Nguyễn Thị Hạnh - Giáo Viên Piano tại Thái Nguyên" 
-                        loading="lazy">
+                <div class="teacher-card-modern">
+                    <img src="images/Giao-Vien/nguyen-thi-hanh-tro-gian-piano-libera-thai-nguyen.jpg" alt="Cô Nguyễn Thị Hạnh">
                     <h3>Nguyễn Thị Hạnh</h3>
-                    <p>Giáo viên Piano - 3 năm kinh nghiệm giảng dạy tại Thái Nguyên</p>
+                    <p>Giáo viên Piano - 3 năm kinh nghiệm</p>
+                    <span class="teacher-badge"><i class="fas fa-star"></i> Tận tâm</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistics với Icon -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="stat-number">2018</h3>
-                    <p class="stat-label">Năm thành lập</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="stat-number">100<span class="stat-plus">+</span></h3>
-                    <p class="stat-label">Học viên</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-chalkboard-user"></i>
-                    </div>
-                    <h3 class="stat-number">10<span class="stat-plus">+</span></h3>
-                    <p class="stat-label">Giáo viên</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3 class="stat-number">50<span class="stat-plus">+</span></h3>
-                    <p class="stat-label">Buổi biểu diễn</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER - Đã cập nhật đầy đủ thông tin đơn vị -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -279,10 +273,10 @@
                 <div class="footer-col">
                     <h4>Chương trình học</h4>
                     <ul>
-                        <li><a href="piano.html">Piano</a></li>
-                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="piano.html">Piano (AMEB)</a></li>
+                        <li><a href="violin.html">Violin (Suzuki)</a></li>
                         <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="cello.html">Cello (Suzuki)</a></li>
                         <li><a href="saxophone.html">Saxophone</a></li>
                         <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                         <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -308,7 +302,8 @@
                         <a href="#"><i class="fab fa-zalo"></i></a>
                     </div>
                     <div class="google-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.836834!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x0!2zMjHCsDM1JzQyLjIiTiAxMDXCsDUwJzEyLjYiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.037!2d105.8346597!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x3b7f6d7a3c2e1f9e!2zVOG6p3UgNCwgVG_DoiBOaMOgIFRoYWkgTmd1eeG6r24gSG9tZSBDZW50ZXIsIFPhu5EgMSDEkMex4budbmcgUGjhu6cgTOG7hW4sIFBobsaw4budaW5nIEhvw6BuZyBWxINuIFThu6UsIFRow6FpIE5ndXnDqm4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" 
+                            width="100%" height="150" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -318,23 +313,48 @@
         </div>
     </footer>
 
-    <!-- LOGIN MODAL -->
+    <!-- LOGIN MODAL - ĐẸP HƠN -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <h2>Đăng nhập</h2>
+            
+            <!-- Logo trong modal -->
+            <div class="modal-logo">
+                <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School" style="height: 50px;">
+            </div>
+            
+            <h2>Chào mừng trở lại</h2>
+            <p class="modal-subtitle">Đăng nhập để quản lý khóa học của bạn</p>
+            
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
-                    <input type="text" id="username" name="username" required>
+                <div class="input-group-modal">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" id="username" name="username" placeholder="Email hoặc mã nhân viên" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="password" required>
+                
+                <div class="input-group-modal">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                    <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
                 </div>
-                <button type="submit" class="btn-submit">Đăng nhập</button>
-                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+                
+                <div class="modal-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                </div>
+                
+                <button type="submit" class="btn-login-modal">
+                    <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                </button>
             </form>
+            
+            <div class="modal-footer">
+                <p>Chưa có tài khoản? <a href="dang-ky.html">Đăng ký ngay</a></p>
+            </div>
         </div>
     </div>
 

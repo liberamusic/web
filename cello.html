@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Schema LocalBusiness - Đã cập nhật thông tin đơn vị -->
+    <!-- Schema LocalBusiness -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -91,10 +91,10 @@
                     <li class="dropdown">
                         <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="piano.html">Piano</a></li>
-                            <li><a href="violin.html">Violin</a></li>
+                            <li><a href="piano.html">Piano (AMEB)</a></li>
+                            <li><a href="violin.html">Violin (Suzuki)</a></li>
                             <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                            <li><a href="cello.html">Cello</a></li>
+                            <li><a href="cello.html">Cello (Suzuki)</a></li>
                             <li><a href="saxophone.html">Saxophone</a></li>
                             <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                             <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -111,7 +111,6 @@
                 <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
             </div>
             
-            <!-- User menu (ẩn khi chưa đăng nhập) -->
             <div class="user-menu" id="userMenu" style="display: none;">
                 <div class="user-avatar" id="userAvatar">
                     <span id="userInitial"></span>
@@ -159,27 +158,144 @@
 
             <h2>Học phí tham khảo</h2>
             <div class="price-table">
-                <table>
-                    <tr><th>Khóa học</th><th>Học phí</th></tr>
-                    <tr><td>Khóa Cơ bản (3 tháng)</td><td>2.800.000đ</td></tr>
-                    <tr><td>Khóa Trung cấp (6 tháng)</td><td>5.200.000đ</td></tr>
-                    <tr><td>Khóa Nâng cao (9 tháng)</td><td>7.500.000đ</td></tr>
+                <table class="tuition-table">
+                    <thead>
+                        <tr><th>Hình thức</th><th>Học phí</th><th>Ưu đãi</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td><strong>Lớp 1:1</strong><br><span class="sub-text">(280k/60 phút)</span></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr><td>- Khóa 3 tháng</td><td>6.720.000đ</td><td></td></tr>
+                        <tr><td>- Khóa 6 tháng</td><td>13.440.000đ</td><td></td></tr>
+                        <tr><td>- Khóa 12 tháng</td><td>26.880.000đ</td><td></td></tr>
+                        <tr class="divider"><td colspan="3"></td></tr>
+                        <tr class="highlight-row">
+                            <td><strong>Lớp 1:4 (Nhóm)</strong><br><span class="sub-text">(180k/90 phút)</span></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr><td>- Khóa 3 tháng</td><td>4.320.000đ</td><td></td></tr>
+                        <tr><td>- Khóa 6 tháng</td><td>8.640.000đ</td><td></td></tr>
+                        <tr><td>- Khóa 12 tháng</td><td>17.280.000đ</td><td></td></tr>
+                    </tbody>
                 </table>
+                <p class="note"><i class="fas fa-info-circle"></i> Học phí áp dụng tại cơ sở Thái Nguyên. Liên hệ để biết ưu đãi theo nhóm.</p>
             </div>
 
-            <h2>Đăng ký học thử miễn phí</h2>
-            <form class="register-form-short" action="https://formspree.io/f/your-form-id" method="POST">
-                <div class="form-row">
-                    <input type="text" name="name" placeholder="Họ tên học viên" required>
-                    <input type="tel" name="phone" placeholder="Số điện thoại" required>
+            <!-- FORM ĐĂNG KÝ MỚI - ĐẸP HƠN -->
+            <div class="register-box">
+                <div class="register-header">
+                    <span class="badge-free"><i class="fas fa-gift"></i> HOÀN TOÀN MIỄN PHÍ</span>
+                    <h3>Đăng ký học thử <span style="color: #e74c3c;">1 buổi</span></h3>
+                    <p>Trải nghiệm phương pháp giảng dạy hiện đại cùng LIBERA</p>
                 </div>
-                <input type="hidden" name="course" value="Cello">
-                <button type="submit" class="btn-submit">Đăng ký ngay</button>
-            </form>
+                
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="form-modern">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="student_name" placeholder="Họ tên học viên *" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="number" name="age" placeholder="Tuổi *" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-user-friends"></i>
+                            <input type="text" name="parent_name" placeholder="Họ tên phụ huynh">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-phone-alt"></i>
+                            <input type="tel" name="phone" placeholder="Số điện thoại *" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-music"></i>
+                            <select name="course" required>
+                                <option value="">-- Chọn môn học * --</option>
+                                <option value="Piano">🎹 Piano</option>
+                                <option value="Violin">🎻 Violin</option>
+                                <option value="Hợp xướng">🎶 Hợp xướng</option>
+                                <option value="Cello" selected>🎻 Cello</option>
+                                <option value="Saxophone">🎷 Saxophone</option>
+                                <option value="Thanh nhạc">🎤 Thanh nhạc</option>
+                                <option value="Cảm thụ âm nhạc">🎼 Cảm thụ âm nhạc</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-clock"></i>
+                            <select name="shift">
+                                <option value="">Ca học mong muốn</option>
+                                <option value="Sáng">🌅 Sáng (08:00 - 11:30)</option>
+                                <option value="Chiều">☀️ Chiều (13:30 - 17:00)</option>
+                                <option value="Tối">🌙 Tối (18:00 - 20:30)</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-calendar-week"></i>
+                            <input type="date" name="expected_date" placeholder="Ngày dự kiến">
+                        </div>
+                        <div class="form-group-full">
+                            <div class="input-group">
+                                <i class="fas fa-chart-line"></i>
+                                <select name="source" required>
+                                    <option value="">Bạn biết đến LIBERA qua đâu? *</option>
+                                    <option value="Google">🔍 Google</option>
+                                    <option value="Facebook">📘 Facebook</option>
+                                    <option value="TikTok">📱 TikTok</option>
+                                    <option value="Người quen">👨‍👩‍👧‍👦 Người quen giới thiệu</option>
+                                    <option value="Đi ngang qua">🚶 Đi ngang qua thấy trung tâm</option>
+                                    <option value="Khác">📌 Khác</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-arrow"></i>
+                            </div>
+                        </div>
+                        <div class="form-group-full">
+                            <div class="input-group">
+                                <i class="fas fa-pen"></i>
+                                <textarea name="note" placeholder="Ghi chú thêm (nếu có)..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="course_detail" value="Cello">
+                    <button type="submit" class="btn-register-modern">
+                        <i class="fas fa-heart"></i> Đăng ký học thử miễn phí <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                
+                <div class="guarantee-modern">
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-gift"></i>
+                        <h4>Miễn phí 100%</h4>
+                        <p>Buổi học thử đầu tiên</p>
+                    </div>
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Không cam kết</h4>
+                        <p>Học thử - quyết định sau</p>
+                    </div>
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <h4>Giáo viên giàu kinh nghiệm</h4>
+                        <p>Trực tiếp giảng dạy</p>
+                    </div>
+                    <div class="guarantee-item-modern">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Cơ sở hiện đại</h4>
+                        <p>Tại Thái Nguyên</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER - Đã cập nhật đầy đủ thông tin đơn vị -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -199,10 +315,10 @@
                 <div class="footer-col">
                     <h4>Chương trình học</h4>
                     <ul>
-                        <li><a href="piano.html">Piano</a></li>
-                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="piano.html">Piano (AMEB)</a></li>
+                        <li><a href="violin.html">Violin (Suzuki)</a></li>
                         <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="cello.html">Cello (Suzuki)</a></li>
                         <li><a href="saxophone.html">Saxophone</a></li>
                         <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                         <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -238,23 +354,48 @@
         </div>
     </footer>
 
-    <!-- LOGIN MODAL -->
+    <!-- LOGIN MODAL - ĐẸP HƠN -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <h2>Đăng nhập</h2>
+            
+            <!-- Logo trong modal -->
+            <div class="modal-logo">
+                <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School" style="height: 50px;">
+            </div>
+            
+            <h2>Chào mừng trở lại</h2>
+            <p class="modal-subtitle">Đăng nhập để quản lý khóa học của bạn</p>
+            
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
-                    <input type="text" id="username" name="username" required>
+                <div class="input-group-modal">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" id="username" name="username" placeholder="Email hoặc mã nhân viên" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="password" required>
+                
+                <div class="input-group-modal">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                    <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
                 </div>
-                <button type="submit" class="btn-submit">Đăng nhập</button>
-                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+                
+                <div class="modal-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                </div>
+                
+                <button type="submit" class="btn-login-modal">
+                    <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                </button>
             </form>
+            
+            <div class="modal-footer">
+                <p>Chưa có tài khoản? <a href="dang-ky.html">Đăng ký ngay</a></p>
+            </div>
         </div>
     </div>
 

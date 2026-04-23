@@ -7,22 +7,17 @@
     <meta name="description" content="LIBERA Music School - Trung tâm đào tạo âm nhạc uy tín tại Thái Nguyên. Với đội ngũ giáo viên giàu kinh nghiệm, cơ sở vật chất hiện đại.">
     <meta name="keywords" content="giới thiệu LIBERA Thái Nguyên, trung tâm âm nhạc Thái Nguyên, học nhạc Thái Nguyên">
     
-    <!-- Geo Tags -->
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
     <meta name="geo.position" content="21.595051;105.836834" />
     <meta name="ICBM" content="21.595051, 105.836834" />
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://liberamusic.github.io/web/gioi-thieu.html">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <style>
-       
-    </style>
     
     <script type="application/ld+json">
 {
@@ -129,7 +124,7 @@
         </div>
     </header>
 
-    <!-- Hero Section mới -->
+    <!-- Hero Section - ĐÃ SỬA LỖI BỊ HEADER CHE -->
     <section class="about-hero">
         <div class="container">
             <h1>Về LIBERA Music School</h1>
@@ -313,31 +308,25 @@
         </div>
     </footer>
 
-    <!-- LOGIN MODAL - ĐẸP HƠN -->
+    <!-- LOGIN MODAL -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            
-            <!-- Logo trong modal -->
             <div class="modal-logo">
                 <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School" style="height: 50px;">
             </div>
-            
             <h2>Chào mừng trở lại</h2>
             <p class="modal-subtitle">Đăng nhập để quản lý khóa học của bạn</p>
-            
             <form id="loginForm">
                 <div class="input-group-modal">
                     <i class="fas fa-envelope"></i>
                     <input type="text" id="username" name="username" placeholder="Email hoặc mã nhân viên" required>
                 </div>
-                
                 <div class="input-group-modal">
                     <i class="fas fa-lock"></i>
                     <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
                     <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
                 </div>
-                
                 <div class="modal-options">
                     <label class="checkbox-container">
                         <input type="checkbox" id="rememberMe">
@@ -346,12 +335,10 @@
                     </label>
                     <a href="#" class="forgot-link">Quên mật khẩu?</a>
                 </div>
-                
                 <button type="submit" class="btn-login-modal">
                     <i class="fas fa-sign-in-alt"></i> Đăng nhập
                 </button>
             </form>
-            
             <div class="modal-footer">
                 <p>Chưa có tài khoản? <a href="dang-ky.html">Đăng ký ngay</a></p>
             </div>
@@ -360,5 +347,21 @@
 
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
 </body>
 </html>

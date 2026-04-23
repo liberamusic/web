@@ -2,15 +2,19 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Thư viện | LIBERA Music School Thái Nguyên</title>
-    <meta name="description" content="Hình ảnh và video hoạt động của LIBERA Music School tại Thái Nguyên. Buổi biểu diễn, lớp học, sự kiện âm nhạc.">
+    <meta name="description" content="Hình ảnh và video hoạt động của LIBERA Music School tại Thái Nguyên. Buổi biểu diễn Piano Gala, lớp học Violin, Hợp xướng và các sự kiện âm nhạc.">
+    <meta name="keywords" content="thư viện LIBERA Thái Nguyên, hình ảnh học piano Thái Nguyên, video biểu diễn violin Thái Nguyên">
     
+    <!-- Geo Tags cho SEO Local Thái Nguyên - Đã cập nhật tọa độ chính xác -->
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
-    <meta name="geo.position" content="21.5929;105.8442" />
-    <meta name="ICBM" content="21.5929, 105.8442" />
-    <link rel="canonical" href="https://[username].github.io/liberamusic/thu-vien.html">
+    <meta name="geo.position" content="21.595051;105.836834" />
+    <meta name="ICBM" content="21.595051, 105.836834" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://liberamusic.github.io/web/thu-vien.html">
     
     <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,6 +22,56 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Schema LocalBusiness - Đã thêm (trước đó bị thiếu) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicSchool",
+  "name": "Libera Music School - Thái Nguyên",
+  "image": "https://liberamusic.github.io/web/images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png",
+  "url": "https://liberamusic.github.io/web/",
+  "telephone": "+84975765661",
+  "email": "liberamusicschooltn@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ",
+    "addressLocality": "Thái Nguyên",
+    "addressRegion": "Thái Nguyên",
+    "postalCode": "25110",
+    "addressCountry": "VN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 21.595051,
+    "longitude": 105.836834
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "87"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "07:30",
+      "closes": "22:30"
+    }
+  ],
+  "sameAs": [
+    "https://liberamusic.github.io/web/"
+  ]
+}
+</script>
 </head>
 <body>
     <!-- HEADER -->
@@ -25,7 +79,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/Logo/logo-piano-thai-nguyen.png" alt="LIBERA Music School Thái Nguyên Logo" loading="lazy" width="180" height="50">
+                    <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên Logo" loading="lazy" width="180" height="50">
                 </a>
             </div>
             
@@ -40,10 +94,10 @@
                     <li class="dropdown">
                         <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="piano.html">Piano</a></li>
-                            <li><a href="violin.html">Violin</a></li>
+                            <li><a href="piano.html">Piano (AMEB)</a></li>
+                            <li><a href="violin.html">Violin (Suzuki)</a></li>
                             <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                            <li><a href="cello.html">Cello</a></li>
+                            <li><a href="cello.html">Cello (Suzuki)</a></li>
                             <li><a href="saxophone.html">Saxophone</a></li>
                             <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                             <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -107,43 +161,43 @@
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-1.jpg" alt="Buổi biểu diễn piano tại LIBERA Thái Nguyên" loading="lazy">
                         <div class="gallery-caption">
-                            <p>Biểu diễn Piano Gala 2024</p>
+                            <p>🎹 Biểu diễn Piano Gala 2024 tại Thái Nguyên</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-2.jpg" alt="Lớp học violin tại LIBERA Thái Nguyên" loading="lazy">
                         <div class="gallery-caption">
-                            <p>Lớp học Violin</p>
+                            <p>🎻 Lớp học Violin Suzuki</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-3.jpg" alt="Đồng diễn hợp xướng tại LIBERA Thái Nguyên" loading="lazy">
                         <div class="gallery-caption">
-                            <p>Đồng diễn Hợp xướng</p>
+                            <p>🎶 Đồng diễn Hợp xướng LIBERA</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-4.jpg" alt="Lớp học cello tại LIBERA Thái Nguyên" loading="lazy">
                         <div class="gallery-caption">
-                            <p>Lớp học Cello</p>
+                            <p>🎻 Lớp học Cello Suzuki</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-5.jpg" alt="Lễ ra mắt LIBERA Music School Thái Nguyên" loading="lazy">
                         <div class="gallery-caption">
-                            <p>Lễ ra mắt LIBERA</p>
+                            <p>🏫 Lễ ra mắt LIBERA Music School</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-6.jpg" alt="Workshop âm nhạc tại LIBERA Thái Nguyên" loading="lazy">
                         <div class="gallery-caption">
-                            <p>Workshop Âm nhạc</p>
+                            <p>🎵 Workshop Âm nhạc cùng giáo viên Suzuki</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab Video (nhúng YouTube) -->
+            <!-- Tab Video -->
             <div id="tab-video" class="tab-content">
                 <div class="video-grid">
                     <div class="video-card">
@@ -164,13 +218,13 @@
                         <div class="video-wrapper">
                             <iframe 
                                 src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                                title="Học viên LIBERA chơi Violin - Cảm nhận âm nhạc" 
+                                title="Học viên LIBERA chơi Violin - Phương pháp Suzuki" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <h3>Học viên LIBERA chơi Violin</h3>
+                        <h3>Học viên LIBERA chơi Violin Suzuki</h3>
                         <p>Màn trình diễn violin đầy cảm xúc của học viên nhí tại LIBERA</p>
                     </div>
 
@@ -192,28 +246,30 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER - Đã cập nhật đầy đủ thông tin đơn vị -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <img src="images/Logo/logo-piano-thai-nguyen.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
+                        <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
                     </div>
                     <div class="footer-contact">
-                        <p><strong>LIBERA Music School - Chi nhánh Thái Nguyên</strong></p>
-                        <p><i class="fas fa-map-marker-alt"></i> Số 123 Đường Lương Ngọc Quyến, P. Hoàng Văn Thụ, TP. Thái Nguyên</p>
-                        <p><i class="fas fa-phone-alt"></i> Hotline: 0988.xxx.xxx - 0208.xxx.xxx</p>
-                        <p><i class="fas fa-envelope"></i> info@liberamusic.com</p>
+                        <p><strong>Libera Music School - Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ, P. Phan Đình Phùng, Thành phố Thái Nguyên, Tỉnh Thái Nguyên.</p>
+                        <p><i class="fas fa-map-pin"></i> Mã bưu chính: 25110</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline/Zalo: 0975 765 661</p>
+                        <p><i class="fas fa-envelope"></i> liberamusicschooltn@gmail.com</p>
+                        <p><i class="fas fa-globe"></i> liberamusic.github.io/web/</p>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h4>Chương trình học</h4>
                     <ul>
-                        <li><a href="piano.html">Piano</a></li>
-                        <li><a href="violin.html">Violin</a></li>
+                        <li><a href="piano.html">Piano (AMEB)</a></li>
+                        <li><a href="violin.html">Violin (Suzuki)</a></li>
                         <li><a href="hop-xuong.html">Hợp xướng</a></li>
-                        <li><a href="cello.html">Cello</a></li>
+                        <li><a href="cello.html">Cello (Suzuki)</a></li>
                         <li><a href="saxophone.html">Saxophone</a></li>
                         <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
                         <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
@@ -239,37 +295,71 @@
                         <a href="#"><i class="fab fa-zalo"></i></a>
                     </div>
                     <div class="google-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0!2d105.8442!3d21.5929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDM1JzM0LjQiTiAxMDXCsDUwJzM5LjEiRQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.037!2d105.8346597!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x3b7f6d7a3c2e1f9e!2zVOG6p3UgNCwgVG_DoiBOaMOgIFRoYWkgTmd1eeG6r24gSG9tZSBDZW50ZXIsIFPhu5EgMSDEkMex4budbmcgUGjhu6cgTOG7hW4sIFBobsaw4budaW5nIEhvw6BuZyBWxINuIFThu6UsIFRow6FpIE5ndXnDqm4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" 
+                            width="100%" height="150" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 LIBERA Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
+                <p>&copy; 2024 Libera Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Login Modal -->
+    <!-- Login Modal - Đẹp hơn -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <h2>Đăng nhập</h2>
+            <div class="modal-logo">
+                <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School" style="height: 50px;">
+            </div>
+            <h2>Chào mừng trở lại</h2>
+            <p class="modal-subtitle">Đăng nhập để quản lý khóa học của bạn</p>
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Tên đăng nhập (Email hoặc mã NV)</label>
-                    <input type="text" id="username" name="username" required>
+                <div class="input-group-modal">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" id="username" name="username" placeholder="Email hoặc mã nhân viên" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="password" required>
+                <div class="input-group-modal">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+                    <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
                 </div>
-                <button type="submit" class="btn-submit">Đăng nhập</button>
-                <p class="forgot-password"><a href="#">Quên mật khẩu?</a></p>
+                <div class="modal-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn-login-modal">
+                    <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                </button>
             </form>
+            <div class="modal-footer">
+                <p>Chưa có tài khoản? <a href="dang-ky.html">Đăng ký ngay</a></p>
+            </div>
         </div>
     </div>
 
     <script src="assets/js/auth.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test tạo bài viết AMEB</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 8px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>📝 Tạo bài viết mẫu về AMEB</h1>
+    <button id="createBtn">🚀 Tạo bài viết</button>
+    <pre id="result">Chưa thực hiện.</pre>
+
+    <script>
+        // Thay địa chỉ API nếu cần
+        const API_URL = 'http://liberamusicschool.ddns.net:5000/api/BaiViet';
+
+        document.getElementById('createBtn').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = '⏳ Đang gửi request...';
+
+            const payload = {
+                tieuDe: "Trải nghiệm về AMEB – Chứng chỉ Piano quốc tế từ Úc",
+                noiDung1: `"Kể từ khi chúng tôi bắt đầu giảng dạy AMEB, các giáo trình đã mang lại kiến thức và khuyến khích tất cả học sinh của chúng tôi. AMEB cung cấp một giáo trình phong phú và đa dạng, theo phong cách âm nhạc không kém gì lịch sử. Với giáo trình Piano bao gồm 4 danh sách, mỗi danh sách bao gồm một giai đoạn lịch sử, học viên nâng cao kiến thức về các phong cách và giai đoạn lịch sử. Trong khi đó, chương trình Piano for Leisure mang đến sự sôi động với nhạc jazz, phim ảnh và âm nhạc nổi tiếng.\n\nGiáo viên có nhiều lựa chọn cho các bài tập, hỗ trợ học sinh giới thiệu các kỹ thuật mới. Từ thời điểm đó trở đi, mọi học viên sẽ có tùy chọn để tăng cường phẩm chất của họ.\n\nThật vinh dự và tự hào khi chúng tôi đã đồng hành cùng AMEB từ những bước đầu tiên hướng tới việc xây dựng và tạo dựng xã hội hóa với âm nhạc. Chúng tôi mong muốn có thêm nhiều phụ huynh và trẻ em yêu thích âm nhạc đến với AMEB."\n\n– Thạc sĩ, Nghệ sĩ Piano Phạm Quỳnh Trang – Founder May Space`,
+                hinhAnh1: "https://ameb.com.vn/wp-content/uploads/2022/03/Picture1.png",
+                noiDung2: `“Mặc dù AMEB mới gia nhập nền giáo dục âm nhạc Việt Nam gần đây, nhưng tôi rất ấn tượng với tầm nhìn và nỗ lực của AMEB. Sự đầu tư nghiêm túc và chuyên nghiệp từ AMEB trong việc xây dựng nền tảng cho sự phát triển trong tương lai cho thấy rõ tham vọng và thiện chí của AMEB trong việc đóng góp cho nền giáo dục âm nhạc Việt Nam, không chỉ đơn thuần là các kỳ thi và giáo trình.”\n\n– Nghệ sĩ Piano Nguyễn Hồng Minh - Hiệu trưởng Erato School of Music\n\n“AMEB has truly propelled our students. Our students are very excited for the new styles of music in the AMEB syllabus: jazz, pop, latin and so on…\n\nSau khi tham gia kỳ thi AMEB đầu tiên vào tháng 8 năm 2018, học sinh của chúng tôi đã mong chờ các kỳ thi trong tương lai và được khuyến khích phát triển các kỹ năng của mình thông qua phản hồi toàn diện do các giám khảo uy tín của Úc cung cấp.”\n\n– Ms Thuong – CEO of Dolin Music School`,
+                hinhAnh2: "https://ameb.com.vn/wp-content/uploads/2021/02/Mr.-Minh-Nguyen-683x1024.png",
+                ketLuan: "AMEB không chỉ là một kỳ thi, mà còn là một hành trình khám phá và phát triển âm nhạc toàn diện. Với giáo trình phong phú và phương pháp đánh giá chuyên nghiệp, AMEB thực sự là lựa chọn hàng đầu cho các học viên piano tại Việt Nam, giúp các em không chỉ giỏi kỹ thuật mà còn hiểu sâu sắc về lịch sử và phong cách âm nhạc.",
+                anhDaiDien: "https://ameb.com.vn/wp-content/uploads/2022/03/Picture1.png"
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    resultDiv.textContent = '✅ Thành công!\nID bài viết: ' + data.id + '\n' + JSON.stringify(data, null, 2);
+                } else {
+                    resultDiv.textContent = '❌ Lỗi từ server:\n' + JSON.stringify(data, null, 2);
+                }
+            } catch (err) {
+                resultDiv.textContent = '❌ Không thể kết nối đến API.\nLỗi: ' + err.message + '\n\nKiểm tra:\n- API đã chạy chưa?\n- CORS đã cấu hình đúng?\n- Địa chỉ API có đúng không?';
+            }
+        });
+    </script>
+</body>
+</html>

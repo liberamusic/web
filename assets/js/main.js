@@ -63,24 +63,40 @@ if (window.innerWidth <= 992) {
 }
 
 // ========== Gallery Tabs (Thư viện page) ==========
-function initGalleryTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    if (tabBtns.length && tabContents.length) {
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                btn.classList.add('active');
-                document.getElementById(`tab-${tabId}`).classList.add('active');
-            });
-        });
+async function loadBaiVietList() {
+    const container = document.getElementById('bai-viet-list');
+    if (!container) return;
+    container.innerHTML = '<div class="loading-spinner">Đang tải bài viết...</div>';
+    try {
+        const response = await fetch('http://liberamusicschool.ddns.net:8080/api/BaiViet');
+        if (!response.ok) throw new Error();
+        const articles = await response.json();
+        if (articles.length === 0) {
+            container.innerHTML = '<div class="error-message">Chưa có bài viết nào.</div>';
+            return;
+        }
+        let html = '';
+        for (const article of articles) {
+            html += `
+                <a href="bai-viet.html?id=${article.id}" class="article-card-link">
+                    <div class="article-card">
+                        <img src="${article.anhDaiDien || 'images/placeholder.jpg'}" alt="${article.tieuDe}">
+                        <div class="article-info">
+                            <h3>${article.tieuDe}</h3>
+                            <p>${article.tomTat || ''}</p>
+                            <span class="article-date">${new Date(article.ngayDang).toLocaleDateString('vi-VN')}</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+        container.innerHTML = html;
+    } catch (err) {
+        container.innerHTML = '<div class="error-message">Không thể tải danh sách bài viết.</div>';
     }
 }
+// Gọi hàm khi trang tải xong
+if (document.getElementById('bai-viet-list')) loadBaiVietList();
 
 // ========== Product Filter (Sản phẩm page) ==========
 function initProductFilters() {

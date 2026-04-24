@@ -7,7 +7,7 @@
     <meta name="description" content="Hình ảnh và video hoạt động của LIBERA Music School tại Thái Nguyên. Buổi biểu diễn Piano Gala, lớp học Violin, Hợp xướng và các sự kiện âm nhạc.">
     <meta name="keywords" content="thư viện LIBERA Thái Nguyên, hình ảnh học piano Thái Nguyên, video biểu diễn violin Thái Nguyên">
     
-    <!-- Geo Tags cho SEO Local Thái Nguyên - Đã cập nhật tọa độ chính xác -->
+    <!-- Geo Tags cho SEO Local Thái Nguyên -->
     <meta name="geo.region" content="VN-69" />
     <meta name="geo.placename" content="Thái Nguyên" />
     <meta name="geo.position" content="21.595051;105.836834" />
@@ -23,7 +23,74 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Schema LocalBusiness - Đã thêm (trước đó bị thiếu) -->
+    <style>
+        /* Additional styles for dynamic posts */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .post-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .post-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .post-card img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+        .post-info {
+            padding: 15px;
+        }
+        .post-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #2c3e66;
+        }
+        .post-info p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .post-date {
+            font-size: 0.8rem;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .loading-spinner, .error-message {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            color: #2c3e66;
+        }
+        .error-message {
+            color: #e74c3c;
+        }
+        .note {
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+        }
+    </style>
+    
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -138,115 +205,21 @@
     <section class="page-hero">
         <div class="container">
             <h1>Thư viện</h1>
-            <p>Hình ảnh và video hoạt động của LIBERA</p>
+            <p>Bài viết và câu chuyện âm nhạc</p>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Bài viết động từ API -->
     <section class="gallery-section">
         <div class="container">
-            <!-- Tab buttons -->
-            <div class="gallery-tabs">
-                <button class="tab-btn active" data-tab="anh">
-                    <i class="fas fa-image"></i> Hình ảnh
-                </button>
-                <button class="tab-btn" data-tab="video">
-                    <i class="fas fa-video"></i> Video
-                </button>
+            <div id="posts-container" class="posts-grid">
+                <div class="loading-spinner">Đang tải bài viết...</div>
             </div>
-
-            <!-- Tab Ảnh -->
-            <div id="tab-anh" class="tab-content active">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-1.jpg" alt="Buổi biểu diễn piano tại LIBERA Thái Nguyên" loading="lazy">
-                        <div class="gallery-caption">
-                            <p>🎹 Biểu diễn Piano Gala 2024 tại Thái Nguyên</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-2.jpg" alt="Lớp học violin tại LIBERA Thái Nguyên" loading="lazy">
-                        <div class="gallery-caption">
-                            <p>🎻 Lớp học Violin Suzuki</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-3.jpg" alt="Đồng diễn hợp xướng tại LIBERA Thái Nguyên" loading="lazy">
-                        <div class="gallery-caption">
-                            <p>🎶 Đồng diễn Hợp xướng LIBERA</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-4.jpg" alt="Lớp học cello tại LIBERA Thái Nguyên" loading="lazy">
-                        <div class="gallery-caption">
-                            <p>🎻 Lớp học Cello Suzuki</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-5.jpg" alt="Lễ ra mắt LIBERA Music School Thái Nguyên" loading="lazy">
-                        <div class="gallery-caption">
-                            <p>🏫 Lễ ra mắt LIBERA Music School</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/Thu-Vien/day-hoc-Thu-Vien-tai-thai-nguyen-6.jpg" alt="Workshop âm nhạc tại LIBERA Thái Nguyên" loading="lazy">
-                        <div class="gallery-caption">
-                            <p>🎵 Workshop Âm nhạc cùng giáo viên Suzuki</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tab Video -->
-            <div id="tab-video" class="tab-content">
-                <div class="video-grid">
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/VIDEO_ID_1" 
-                                title="LIBERA Music School - Biểu diễn Piano Gala 2024 Thái Nguyên" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        <h3>Biểu diễn Piano Gala 2024 tại Thái Nguyên</h3>
-                        <p>Buổi biểu diễn đặc sắc của học viên LIBERA tại Trung tâm Văn hóa Thái Nguyên</p>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                                title="Học viên LIBERA chơi Violin - Phương pháp Suzuki" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        <h3>Học viên LIBERA chơi Violin Suzuki</h3>
-                        <p>Màn trình diễn violin đầy cảm xúc của học viên nhí tại LIBERA</p>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-wrapper">
-                            <iframe 
-                                src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                                title="LIBERA Music School - Giới thiệu khóa học Saxophone" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        <h3>Giới thiệu khóa học Saxophone</h3>
-                        <p>Khám phá âm thanh cuốn hút của Saxophone cùng LIBERA</p>
-                    </div>
-                </div>
-            </div>
+            <div class="note">✨ Nhấp vào mỗi bài viết để đọc chi tiết</div>
         </div>
     </section>
 
-    <!-- FOOTER - Đã cập nhật đầy đủ thông tin đơn vị -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -306,7 +279,7 @@
         </div>
     </footer>
 
-    <!-- Login Modal - Đẹp hơn -->
+    <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
@@ -347,6 +320,7 @@
     <script src="assets/js/main.js"></script>
     
     <script>
+        // Hàm toggle password (giữ nguyên)
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const toggleIcon = document.querySelector('.toggle-password');
@@ -360,6 +334,56 @@
                 toggleIcon.classList.add('fa-eye-slash');
             }
         }
+
+        // API lấy danh sách bài viết
+        const API_URL = 'http://liberamusicschool.ddns.net:8080/api/BaiViet';
+
+        async function loadPosts() {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '<div class="loading-spinner">📖 Đang tải bài viết...</div>';
+
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error('Không thể tải dữ liệu');
+                const posts = await response.json();
+
+                if (!posts || posts.length === 0) {
+                    container.innerHTML = '<div class="error-message">Chưa có bài viết nào. Hãy quay lại sau.</div>';
+                    return;
+                }
+
+                let html = '';
+                for (const post of posts) {
+                    // Lấy ảnh đại diện hoặc ảnh mặc định
+                    const thumb = post.anhDaiDien || post.hinhAnh1 || 'images/placeholder.jpg';
+                    // Lấy tóm tắt hoặc cắt nội dung1 nếu có
+                    let summary = post.tomTat || '';
+                    if (!summary && post.noiDung1) {
+                        summary = post.noiDung1.length > 120 ? post.noiDung1.substring(0, 120) + '...' : post.noiDung1;
+                    }
+                    const date = new Date(post.ngayDang).toLocaleDateString('vi-VN');
+                    html += `
+                        <a href="bai-viet.html?id=${post.id}" class="post-card-link">
+                            <div class="post-card">
+                                <img src="${thumb}" alt="${post.tieuDe}" loading="lazy">
+                                <div class="post-info">
+                                    <h3>${post.tieuDe}</h3>
+                                    <p>${summary || ''}</p>
+                                    <div class="post-date"><i class="far fa-calendar-alt"></i> ${date}</div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                }
+                container.innerHTML = html;
+            } catch (error) {
+                console.error('Lỗi tải bài viết:', error);
+                container.innerHTML = '<div class="error-message">❌ Không thể kết nối đến máy chủ. Vui lòng thử lại sau.</div>';
+            }
+        }
+
+        // Tải bài viết khi trang load
+        document.addEventListener('DOMContentLoaded', loadPosts);
     </script>
 </body>
 </html>

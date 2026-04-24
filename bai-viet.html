@@ -1,53 +1,249 @@
-// Đoạn script thay thế trong bai-viet.html
-async function loadArticle() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
-    if (!id) {
-        document.getElementById('loading').innerHTML = '<div class="error-message">Không tìm thấy bài viết.</div>';
-        return;
-    }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Đang tải bài viết...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .article-detail-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .article-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #2c3e66;
+            font-family: 'Playfair Display', serif;
+        }
+        .article-meta {
+            color: #777;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .article-paragraph {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 20px 0;
+            color: #333;
+        }
+        .article-image {
+            margin: 25px 0;
+            text-align: center;
+        }
+        .article-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .article-conclusion {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 30px 0 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 5px solid #2c3e66;
+            border-radius: 12px;
+            font-style: italic;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #2c3e66;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .loading-spinner, .error-message {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .article-detail-container { margin: 100px 20px 40px; padding: 20px; }
+            .article-title { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (copy từ index.html hoặc dùng include) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên Logo" loading="lazy" width="180" height="50">
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li class="dropdown">
+                        <a href="#">Chương trình học <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="piano.html">Piano (AMEB)</a></li>
+                            <li><a href="violin.html">Violin (Suzuki)</a></li>
+                            <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                            <li><a href="cello.html">Cello (Suzuki)</a></li>
+                            <li><a href="saxophone.html">Saxophone</a></li>
+                            <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                            <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="thu-vien.html">Thư viện</a></li>
+                    <li><a href="lien-he.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn-login" id="loginBtn"><i class="fas fa-user"></i> Đăng nhập</button>
+                <a href="dang-ky.html" class="btn-register">Đăng ký học thử</a>
+            </div>
+            <div class="user-menu" id="userMenu" style="display: none;">
+                <div class="user-avatar" id="userAvatar"><span id="userInitial"></span></div>
+                <span class="user-name" id="userName"></span>
+                <div class="user-dropdown">
+                    <a href="#" id="profileLink"><i class="fas fa-user"></i> Hồ sơ</a>
+                    <a href="#" id="changePasswordLink"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+                    <hr>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    try {
-        const res = await fetch(`${API_BASE}/BaiViet/${id}`);
-        if (!res.ok) throw new Error('Bài viết không tồn tại');
-        const article = await res.json();
+    <main>
+        <div id="article-detail" class="container">
+            <div class="article-detail-container">
+                <div id="loading" class="loading-spinner">Đang tải nội dung...</div>
+            </div>
+        </div>
+    </main>
 
-        document.title = article.tieuDe + ' | LIBERA Music School';
+    <!-- FOOTER (copy từ index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/Logo/logo-libera-lop-hoc-piano-thai-nguyen-2.png" alt="LIBERA Music School Thái Nguyên" loading="lazy" width="180" height="50">
+                    </div>
+                    <div class="footer-contact">
+                        <p><strong>Libera Music School - Thái Nguyên</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Tầng 4, Tòa nhà Thái Nguyên Home Center, Số 1 Đường Phủ Liễn, Phường Hoàng Văn Thụ, P. Phan Đình Phùng, Thành phố Thái Nguyên, Tỉnh Thái Nguyên.</p>
+                        <p><i class="fas fa-map-pin"></i> Mã bưu chính: 25110</p>
+                        <p><i class="fas fa-phone-alt"></i> Hotline/Zalo: 0975 765 661</p>
+                        <p><i class="fas fa-envelope"></i> liberamusicschooltn@gmail.com</p>
+                        <p><i class="fas fa-globe"></i> liberamusic.github.io/web/</p>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Chương trình học</h4>
+                    <ul>
+                        <li><a href="piano.html">Piano (AMEB)</a></li>
+                        <li><a href="violin.html">Violin (Suzuki)</a></li>
+                        <li><a href="hop-xuong.html">Hợp xướng</a></li>
+                        <li><a href="cello.html">Cello (Suzuki)</a></li>
+                        <li><a href="saxophone.html">Saxophone</a></li>
+                        <li><a href="thanh-nhac.html">Thanh nhạc</a></li>
+                        <li><a href="cam-thu-am-nhac.html">Cảm thụ âm nhạc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                        <li><a href="san-pham.html">Sản phẩm</a></li>
+                        <li><a href="thu-vien.html">Thư viện</a></li>
+                        <li><a href="lien-he.html">Liên hệ</a></li>
+                        <li><a href="dang-ky.html">Đăng ký học thử</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-zalo"></i></a>
+                    </div>
+                    <div class="google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.037!2d105.8346597!3d21.595051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134a10d0c6a1a95%3A0x3b7f6d7a3c2e1f9e!2zVOG6p3UgNCwgVG_DoiBOaMOgIFRoYWkgTmd1eeG6r24gSG9tZSBDZW50ZXIsIFPhu5EgMSDEkMex4budbmcgUGjhu6cgTOG7hW4sIFBobsaw4budaW5nIEhvw6BuZyBWxINuIFThu6UsIFRow6FpIE5ndXnDqm4sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" 
+                            width="100%" height="150" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Libera Music School - CÔNG TY TNHH GIÁO DỤC ÂM NHẠC LIBERA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-        function formatText(text) {
-            if (!text) return '';
-            return text.replace(/\n/g, '<br>');
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        const API_BASE = 'http://liberamusicschool.ddns.net:8080/api';
+        
+        async function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            if (!id) {
+                document.getElementById('loading').innerHTML = '<div class="error-message">Không tìm thấy bài viết.</div>';
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE}/BaiViet/${id}`);
+                if (!res.ok) throw new Error('Bài viết không tồn tại');
+                const article = await res.json();
+
+                document.title = article.tieuDe + ' | LIBERA Music School';
+
+                function formatText(text) {
+                    if (!text) return '';
+                    return text.replace(/\n/g, '<br>');
+                }
+
+                let html = `<h1 class="article-title">${article.tieuDe}</h1>`;
+                html += `<div class="article-meta">Ngày đăng: ${new Date(article.ngayDang).toLocaleDateString('vi-VN')} | Lượt xem: ${article.luotXem}</div>`;
+
+                if (article.noiDung1) {
+                    html += `<div class="article-paragraph">${formatText(article.noiDung1)}</div>`;
+                }
+                if (article.hinhAnh1) {
+                    html += `<div class="article-image"><img src="${article.hinhAnh1}" alt="${article.tieuDe}"></div>`;
+                }
+                if (article.noiDung2) {
+                    html += `<div class="article-paragraph">${formatText(article.noiDung2)}</div>`;
+                }
+                if (article.hinhAnh2) {
+                    html += `<div class="article-image"><img src="${article.hinhAnh2}" alt="${article.tieuDe}"></div>`;
+                }
+                if (article.ketLuan) {
+                    html += `<div class="article-conclusion">${formatText(article.ketLuan)}</div>`;
+                }
+
+                html += `<a href="thu-vien.html" class="back-link">← Quay lại thư viện</a>`;
+
+                document.getElementById('article-detail').innerHTML = `<div class="article-detail-container">${html}</div>`;
+
+            } catch (error) {
+                console.error('Lỗi:', error);
+                document.getElementById('loading').innerHTML = '<div class="error-message">Không thể tải nội dung bài viết. Vui lòng thử lại sau.</div>';
+            }
         }
 
-        let html = `<h1 class="article-title">${article.tieuDe}</h1>`;
-        html += `<div class="article-meta">Ngày đăng: ${new Date(article.ngayDang).toLocaleDateString('vi-VN')} | Lượt xem: ${article.luotXem}</div>`;
-
-        // Đoạn 1 + ảnh 1
-        if (article.noiDung1) {
-            html += `<div class="article-paragraph">${formatText(article.noiDung1)}</div>`;
-        }
-        if (article.hinhAnh1) {
-            html += `<div class="article-image"><img src="${article.hinhAnh1}" alt="${article.tieuDe}"></div>`;
-        }
-
-        // Đoạn 2 + ảnh 2
-        if (article.noiDung2) {
-            html += `<div class="article-paragraph">${formatText(article.noiDung2)}</div>`;
-        }
-        if (article.hinhAnh2) {
-            html += `<div class="article-image"><img src="${article.hinhAnh2}" alt="${article.tieuDe}"></div>`;
-        }
-
-        // Kết luận
-        if (article.ketLuan) {
-            html += `<div class="article-conclusion">${formatText(article.ketLuan)}</div>`;
-        }
-
-        html += `<a href="thu-vien.html" class="back-link">← Quay lại thư viện</a>`;
-
-        document.getElementById('article-detail').innerHTML = `<div class="article-detail-container">${html}</div>`;
-
-    } catch (error) {
-        document.getElementById('loading').innerHTML = '<div class="error-message">Không thể tải nội dung bài viết.</div>';
-    }
-}
+        document.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+</html>

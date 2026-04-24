@@ -68,7 +68,7 @@ async function loadBaiVietList() {
     if (!container) return;
     container.innerHTML = '<div class="loading-spinner">Đang tải bài viết...</div>';
     try {
-        const response = await fetch('http://liberamusicschool.ddns.net:8080/api/BaiViet');
+        const response = await fetch('https://liberamusicschool.ddns.net:8080/api/BaiViet');
         if (!response.ok) throw new Error();
         const articles = await response.json();
         if (articles.length === 0) {

@@ -1,0 +1,53 @@
+// Đoạn script thay thế trong bai-viet.html
+async function loadArticle() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    if (!id) {
+        document.getElementById('loading').innerHTML = '<div class="error-message">Không tìm thấy bài viết.</div>';
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_BASE}/BaiViet/${id}`);
+        if (!res.ok) throw new Error('Bài viết không tồn tại');
+        const article = await res.json();
+
+        document.title = article.tieuDe + ' | LIBERA Music School';
+
+        function formatText(text) {
+            if (!text) return '';
+            return text.replace(/\n/g, '<br>');
+        }
+
+        let html = `<h1 class="article-title">${article.tieuDe}</h1>`;
+        html += `<div class="article-meta">Ngày đăng: ${new Date(article.ngayDang).toLocaleDateString('vi-VN')} | Lượt xem: ${article.luotXem}</div>`;
+
+        // Đoạn 1 + ảnh 1
+        if (article.noiDung1) {
+            html += `<div class="article-paragraph">${formatText(article.noiDung1)}</div>`;
+        }
+        if (article.hinhAnh1) {
+            html += `<div class="article-image"><img src="${article.hinhAnh1}" alt="${article.tieuDe}"></div>`;
+        }
+
+        // Đoạn 2 + ảnh 2
+        if (article.noiDung2) {
+            html += `<div class="article-paragraph">${formatText(article.noiDung2)}</div>`;
+        }
+        if (article.hinhAnh2) {
+            html += `<div class="article-image"><img src="${article.hinhAnh2}" alt="${article.tieuDe}"></div>`;
+        }
+
+        // Kết luận
+        if (article.ketLuan) {
+            html += `<div class="article-conclusion">${formatText(article.ketLuan)}</div>`;
+        }
+
+        html += `<a href="thu-vien.html" class="back-link">← Quay lại thư viện</a>`;
+
+        document.getElementById('article-detail').innerHTML = `<div class="article-detail-container">${html}</div>`;
+
+    } catch (error) {
+        document.getElementById('loading').innerHTML = '<div class="error-message">Không thể tải nội dung bài viết.</div>';
+    }
+}

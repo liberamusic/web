@@ -42,6 +42,7 @@ function clearAuthData() {
     localStorage.removeItem(USER_KEY);
 }
 
+
 function parseJWT(token) {
     try {
         const base64Url = token.split('.')[1];
